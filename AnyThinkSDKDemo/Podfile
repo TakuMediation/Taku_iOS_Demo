@@ -1,0 +1,65 @@
+# Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '12.0'
+project 'AnyThinkSDKDemo.xcodeproj'
+
+def share_pods
+  
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'MJRefresh'
+
+
+end
+
+target 'AnyThinkSDKDemo' do
+  
+  post_install do |installer|
+        installer.generated_projects.each do |project|
+          project.targets.each do |target|
+              target.build_configurations.each do |config|
+                  config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+               end
+          end
+        end
+      end
+  
+  # Comment the next line if you don't want to use dynamic frameworks
+#  use_frameworks!
+  share_pods
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'AnyThinkiOS','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkAdmobAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkPangleAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkTTAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkFacebookAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkGDTAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkMintegralAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkApplovinAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkTapjoyAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkChartboostAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkUnityAdsAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkVungleAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkInmobiAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkIronSourceAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkMaioAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkNendAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkSigmobAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkStartAppAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkKidozAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkFyberAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkMyTargetAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkKuaiShouAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkBaiduAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkOguryAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkAdColonyAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkYandexAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkBigoAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkPubNativeAdapter','6.2.88'
+  pod 'AnyThinkiOS/AnyThinkKlevinAdapter','6.2.88'
+
+
+end 
