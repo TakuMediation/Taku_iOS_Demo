@@ -1,6 +1,6 @@
 *.DS_Store
-AnyThinkSDKDemo/Podfile.lock
-AnyThinkSDKDemo/Pods
-AnyThinkSDKDemo/AnyThinkSDKDemo.xcworkspace
-AnyThinkSDKDemo/SDK
+TakuSDKDemo/Podfile.lock
+TakuSDKDemo/Pods
+TakuSDKDemo/AnyThinkSDKDemo.xcworkspace
+TakuSDKDemo/SDK
 JoyPacSDKDemo
