@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096847AB4221638E84758631 /* Pods_iOSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8F75BC73E49E213D33B16B /* Pods_iOSDemo.framework */; };
 		89255F812D2ADF5E00995FDE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89255F7F2D2ADF5E00995FDE /* HomeViewController.m */; };
 		89255FB82D2AE22700995FDE /* NaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89255FB72D2AE22700995FDE /* NaviBarView.m */; };
 		89255FBC2D2AE4A500995FDE /* LocalizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89255FBB2D2AE4A500995FDE /* LocalizationManager.m */; };
@@ -51,14 +52,13 @@
 		CADE555E2D32625B00E492CC /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = CADE555D2D32625B00E492CC /* Tools.m */; };
 		CADE55622D32641600E492CC /* SelfRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CADE55612D32641600E492CC /* SelfRenderView.m */; };
 		CADE55662D326A4700E492CC /* AdDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CADE55652D326A4700E492CC /* AdDisplayVC.m */; };
-		CAE0CF832D71B8C800FE59E8 /* SplashInNewWindowContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE0CF822D71B8C800FE59E8 /* SplashInNewWindowContainerVC.m */; };
 		CAE54C872D3B4C8B0054C0EB /* SplashTypeSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE54C862D3B4C8B0054C0EB /* SplashTypeSelectVC.m */; };
 		CAF8B0832D364FF600F3498E /* file in Resources */ = {isa = PBXBuildFile; fileRef = CAF8B0822D364FF600F3498E /* file */; };
-		CAF8B0862D39029A00F3498E /* SplashInNewWindowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF8B0852D39029A00F3498E /* SplashInNewWindowVC.m */; };
 		CAF8F49F2D3FA7D900C6E7B9 /* DemoOfferAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF8F49E2D3FA7D900C6E7B9 /* DemoOfferAdModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F8F75BC73E49E213D33B16B /* Pods_iOSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89255F7B2D2ADF2300995FDE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		89255F7C2D2ADF2700995FDE /* SDKMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKMacros.h; sourceTree = "<group>"; };
 		89255F7E2D2ADF5E00995FDE /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 		899E18AC2D2D798B005394C9 /* WildClickButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WildClickButton.m; sourceTree = "<group>"; };
 		899E18AF2D2D7E9F005394C9 /* RewardedVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RewardedVC.h; sourceTree = "<group>"; };
 		899E18B02D2D7E9F005394C9 /* RewardedVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RewardedVC.m; sourceTree = "<group>"; };
+		AF02771BFAE2E88022BB2682 /* Pods-iOSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.debug.xcconfig"; path = "Target Support Files/Pods-iOSDemo/Pods-iOSDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CA2715AF2D8C02540079E0A0 /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		CA2715B02D8C02540079E0A0 /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		CA2715B52D912A6E0079E0A0 /* BaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
@@ -182,15 +183,12 @@
 		CADE55612D32641600E492CC /* SelfRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfRenderView.m; sourceTree = "<group>"; };
 		CADE55642D326A4700E492CC /* AdDisplayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdDisplayVC.h; sourceTree = "<group>"; };
 		CADE55652D326A4700E492CC /* AdDisplayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdDisplayVC.m; sourceTree = "<group>"; };
-		CAE0CF812D71B8C800FE59E8 /* SplashInNewWindowContainerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashInNewWindowContainerVC.h; sourceTree = "<group>"; };
-		CAE0CF822D71B8C800FE59E8 /* SplashInNewWindowContainerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashInNewWindowContainerVC.m; sourceTree = "<group>"; };
 		CAE54C852D3B4C8B0054C0EB /* SplashTypeSelectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashTypeSelectVC.h; sourceTree = "<group>"; };
 		CAE54C862D3B4C8B0054C0EB /* SplashTypeSelectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashTypeSelectVC.m; sourceTree = "<group>"; };
 		CAF8B0822D364FF600F3498E /* file */ = {isa = PBXFileReference; lastKnownFileType = text; path = file; sourceTree = "<group>"; };
-		CAF8B0842D39029A00F3498E /* SplashInNewWindowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashInNewWindowVC.h; sourceTree = "<group>"; };
-		CAF8B0852D39029A00F3498E /* SplashInNewWindowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashInNewWindowVC.m; sourceTree = "<group>"; wrapsLines = 1; };
 		CAF8F49D2D3FA7D900C6E7B9 /* DemoOfferAdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoOfferAdModel.h; sourceTree = "<group>"; };
 		CAF8F49E2D3FA7D900C6E7B9 /* DemoOfferAdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoOfferAdModel.m; sourceTree = "<group>"; };
+		CF301C106EB67558AF252652 /* Pods-iOSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDemo.release.xcconfig"; path = "Target Support Files/Pods-iOSDemo/Pods-iOSDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096847AB4221638E84758631 /* Pods_iOSDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +206,8 @@
 		0911F06F71DDBE6EDE5B4891 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				AF02771BFAE2E88022BB2682 /* Pods-iOSDemo.debug.xcconfig */,
+				CF301C106EB67558AF252652 /* Pods-iOSDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -354,7 +355,6 @@
 			isa = PBXGroup;
 			children = (
 				CA4FCF4F2D3BB94100B602A3 /* Common(推荐接入方式) */,
-				CA3CCE9C2D3B921D00A8BC7F /* Advanced */,
 				CA4FCF4E2D3BB93400B602A3 /* MenuVC */,
 			);
 			path = "Splash(开屏广告)";
@@ -364,19 +364,9 @@
 			isa = PBXGroup;
 			children = (
 				CA643BF02D3F7BBF006D9512 /* CoreML.framework */,
+				5F8F75BC73E49E213D33B16B /* Pods_iOSDemo.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CA3CCE9C2D3B921D00A8BC7F /* Advanced */ = {
-			isa = PBXGroup;
-			children = (
-				CAF8B0842D39029A00F3498E /* SplashInNewWindowVC.h */,
-				CAF8B0852D39029A00F3498E /* SplashInNewWindowVC.m */,
-				CAE0CF812D71B8C800FE59E8 /* SplashInNewWindowContainerVC.h */,
-				CAE0CF822D71B8C800FE59E8 /* SplashInNewWindowContainerVC.m */,
-			);
-			path = Advanced;
 			sourceTree = "<group>";
 		};
 		CA47064D2D5C8B2A003E7AD6 /* TestMode(测试模式与测试工具) */ = {
@@ -741,9 +731,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8972AB862D2AD7A400CB5A22 /* Build configuration list for PBXNativeTarget "iOSDemo" */;
 			buildPhases = (
+				AC858F164085F2310AE9FC7D /* [CP] Check Pods Manifest.lock */,
 				8972AB6A2D2AD7A300CB5A22 /* Sources */,
 				8972AB6B2D2AD7A300CB5A22 /* Frameworks */,
 				8972AB6C2D2AD7A300CB5A22 /* Resources */,
+				BCB7B0258C46DD4A24CDD018 /* [CP] Embed Pods Frameworks */,
+				C4EFE8E07269EEB46970ABC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -804,12 +797,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AC858F164085F2310AE9FC7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCB7B0258C46DD4A24CDD018 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4EFE8E07269EEB46970ABC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8972AB6A2D2AD7A300CB5A22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE0CF832D71B8C800FE59E8 /* SplashInNewWindowContainerVC.m in Sources */,
 				899E18AD2D2D798B005394C9 /* WildClickButton.m in Sources */,
 				8972AB9D2D2AD7A800CB5A22 /* AppDelegate.m in Sources */,
 				89255FC02D2AE66B00995FDE /* BaseVC.m in Sources */,
@@ -826,7 +877,6 @@
 				89255FBC2D2AE4A500995FDE /* LocalizationManager.m in Sources */,
 				898A0EC32D2C1E8000EF5B72 /* File.swift in Sources */,
 				CA5229CE2D55FB9900FB3D9C /* CustomCell.m in Sources */,
-				CAF8B0862D39029A00F3498E /* SplashInNewWindowVC.m in Sources */,
 				CA47065C2D5F3963003E7AD6 /* DrawCustomCell.m in Sources */,
 				CA47064C2D5C8471003E7AD6 /* SDKGlobalConfigTool.m in Sources */,
 				CA2715B72D912A6E0079E0A0 /* BaseTabBarController.m in Sources */,
@@ -879,6 +929,7 @@
 /* Begin XCBuildConfiguration section */
 		8972AB872D2AD7A400CB5A22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF02771BFAE2E88022BB2682 /* Pods-iOSDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -917,6 +968,7 @@
 		};
 		8972AB882D2AD7A400CB5A22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF301C106EB67558AF252652 /* Pods-iOSDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

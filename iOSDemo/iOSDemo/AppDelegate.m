@@ -9,7 +9,6 @@
 
 #import <AnyThinkSDK/AnyThinkSDK.h>
 #import "TestModeTool.h"
-#import "SplashInNewWindowContainerVC.h"
 #import "BaseNavigationController.h"
 #import "AdSDKManager.h"
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
@@ -70,20 +69,6 @@
     }
 }
   
-/// 可选接入 - 非常用方案 - 创建开屏广告专用UIWindow
-- (void)initSplashWindow {
-    self.splashWindow = [UIWindow new];
-    self.splashWindow.backgroundColor = kHexColor(0xffffff);
-    if (@available(iOS 13.0, *)) {
-        self.splashWindow.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
-    }
-    
-    SplashInNewWindowContainerVC * splashRootVC = [SplashInNewWindowContainerVC new];
-    splashRootVC.view.backgroundColor = UIColor.blueColor;
-    self.splashWindow.rootViewController = splashRootVC;
-    [self.splashWindow makeKeyAndVisible];
-}
- 
 #pragma mark - Demo UI 可忽略
 - (void)setupDemoUI {
     self.window = [UIWindow new];

@@ -11,7 +11,6 @@
 #import "SplashTypeSelectVC.h"
 #import "BannerVC.h"
 #import "NativeTypeSelectVC.h"
-#import "SplashInNewWindowVC.h"
 #import "IMAVC.h"
 
 #import "TestModeTool.h"

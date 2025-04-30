@@ -130,10 +130,12 @@
     [offer rendererWithConfiguration:config selfRenderView:selfRenderView nativeADView:nativeADView];
     
     //【Masonry方式】精确设置logo大小以及位置，与上方【手动布局方式】选择一种实现，请在渲染广告之后调用
-    [nativeADView.logoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.right.bottom.mas_equalTo(nativeADView).mas_offset(-10);
-        make.width.height.mas_equalTo(20);
-    }];
+    if (nativeADView.logoImageView && nativeADView.logoImageView.superview) {
+        [nativeADView.logoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.mas_equalTo(nativeADView).mas_offset(-10);
+            make.width.height.mas_equalTo(20);
+        }];
+    }
     
     //用于测试时打印
 //    [self printNativeAdInfoAfterRendererWithOffer:offer nativeADView:nativeADView];
