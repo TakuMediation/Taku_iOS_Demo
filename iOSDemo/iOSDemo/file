@@ -1,0 +1,171 @@
+{
+    "插屏广告": {
+        "zh-Hans": "插屏广告",
+        "en": "Interstitial",
+    },
+    "激励广告": {
+        "zh-Hans": "激励广告",
+        "en": "Rewarded",
+    },
+    "开屏广告": {
+        "zh-Hans": "开屏广告",
+        "en": "Splash",
+    },
+    "横幅广告": {
+        "zh-Hans": "横幅广告",
+        "en": "Banner",
+    },
+    "原生广告": {
+        "zh-Hans": "原生广告",
+        "en": "Native",
+    },
+    "插播广告": {
+        "zh-Hans": "插播广告",
+        "en": "Media Video"
+    },
+    "包含插屏和全屏广告": {
+        "zh-Hans": "包含插屏和全屏广告。出现在自然的中断或过渡点。",
+        "en": "Include Interstitial and FullScreen. Appears at natural breaks or transition points."
+    },
+    "用户可通过观看视频广告来换取应用内奖励": {
+        "zh-Hans": "用户可通过观看视频广告来换取应用内奖励。",
+        "en": "Users can engage with a video ad in exchange for in-app rewards."
+    },
+    "应用冷、热启动后立即显示": {
+        "zh-Hans": "应用冷、热启动后立即显示。",
+        "en": "Displayed immediately after the application is launched."
+    },
+    "灵活的格式，可以出现在应用的顶部、中部或底部": {
+        "zh-Hans": "灵活的格式，可以出现在应用的顶部、中部或底部。",
+        "en": "Flexible formats which could appear at the top, middle or bottom of your app."
+    },
+    "与您的原生应用代码兼容性最强的视频广告": {
+        "zh-Hans": "与您的原生应用代码兼容性最强的视频广告。",
+        "en": "Most compatible with your native app code for video ads."
+    },
+    "由您控制内容视频播放，而SDK负责处理广告播放": {
+        "zh-Hans": "由您控制内容视频播放，而SDK负责处理广告播放。",
+        "en": "You control the playback of content videos, while the SDK handles the ad playback."
+    },
+    "验证SDK的接入情况、测试已接入广告平台": {
+        "zh-Hans": "验证SDK的接入情况、测试已接入广告平台，但不能测试您App自身的广告逻辑。",
+        "en": "Verify the SDK integration, test the connected ad platforms, but cannot test your App's own advertising logic."
+    },
+    "演示最简单的加载、展示广告功能": {
+        "zh-Hans": "演示最简单的加载、展示广告功能",
+        "en": "Demonstrate the simplest ad loading and displaying functionality"
+    },
+    "基础功能演示": {
+        "zh-Hans": "基础功能演示",
+        "en": "Basic Functionality Demonstration"
+    },
+    "在新UIWindow中展示": {
+        "zh-Hans": "在新UIWindow中展示",
+        "en": "Display in a new UIWindow"
+    },
+    "避免广告与弹窗的冲突，需要自行管理keyWindow": {
+        "zh-Hans": "避免广告与弹窗的冲突，需要自行管理keyWindow",
+        "en": "Avoid conflicts between ads and pop-ups, need to manage keywindow yourself."
+    },
+    "推荐场景演示": {
+        "zh-Hans": "推荐场景演示",
+        "en": "General Scenario Demonstration"
+    },
+    "在开发者最常见的开屏场景中展示广告，这是我们推荐的集成方式": {
+        "zh-Hans": "在开发者最常见的开屏场景中展示广告，这是我们推荐的集成方式",
+        "en": "Display ads in the most common splash screen scenarios for developers, which is our recommended"
+    },
+    "加载广告": {
+        "zh-Hans": "加载广告",
+        "en": "Load Ad"
+    },
+    "展示广告": {
+        "zh-Hans": "展示广告",
+        "en": "Show Ad"
+    },
+    "隐藏广告": {
+        "zh-Hans": "隐藏广告",
+        "en": "Hidden Ad"
+    },
+    "重新展示": {
+        "zh-Hans": "重新展示",
+        "en": "Reshow Ad"
+    },
+    "移除广告": {
+        "zh-Hans": "移除广告",
+        "en": "Remove Ad"
+    },
+    "清除日志": {
+        "zh-Hans": "清除日志",
+        "en": "Clear Log"
+    },
+    "自渲染广告": {
+        "zh-Hans": "自渲染广告",
+        "en": "Self Render Ad"
+    },
+    "模板广告": {
+        "zh-Hans": "模板广告",
+        "en": "Express Ad"
+    },
+    "演示基础的单个自渲染广告": {
+        "zh-Hans": "演示基础的单个自渲染广告",
+        "en": "Demonstrate basic single self-render ad"
+    },
+    "演示基础的单个模板广告": {
+        "zh-Hans": "演示基础的单个模板广告",
+        "en": "Demonstrate basic single template ad"
+    },
+    "信息流广告(自渲染)": {
+        "zh-Hans": "信息流广告(自渲染)",
+        "en": "Feed Ads (Self Render)"
+    },
+    "信息流广告(模板渲染)": {
+        "zh-Hans": "信息流广告(模板渲染)",
+        "en": "Feed Ads (Template Render)"
+    },
+    "Draw全屏广告(自渲染)": {
+        "zh-Hans": "Draw全屏广告(自渲染)",
+        "en": "Draw Full-Screen Ad (Self Render)"
+    },
+    "点击了加载广告": {
+        "zh-Hans": "点击了加载广告",
+        "en": "Load Ad button clicked"
+    },
+    "在滚动列表单元中展示自定义的广告": {
+        "zh-Hans": "在滚动列表单元中展示自定义的广告",
+        "en": "Display custom ads in scrollable list cells"
+    },
+    "在滚动列表单元中展示模版广告": {
+        "zh-Hans": "在滚动列表单元中展示模版广告",
+        "en": "Display template-style advertisements in scrolling list units."
+    },
+    "可滚动的全屏样式的广告": {
+        "zh-Hans": "可滚动的全屏样式的广告",
+        "en": "A full-screen style ad, in scrollable list"
+    },
+    "是否要清空日志": {
+        "zh-Hans": "是否要清空日志",
+        "en": "Are you sure to clear all logs?"
+    },
+    "否": {
+        "zh-Hans": "否",
+        "en": "No"
+    },
+    "是": {
+        "zh-Hans": "是",
+        "en": "Yes"
+    },
+    "当前": {
+        "zh-Hans": "当前",
+        "en": "Current"
+    },
+    "总超时时间": {
+        "zh-Hans": "总超时时间",
+        "en": "timeout setting"
+    },
+    "温馨提示": {
+        "zh-Hans": "温馨提示",
+        "en": "Tips"
+    },
+}
+ 

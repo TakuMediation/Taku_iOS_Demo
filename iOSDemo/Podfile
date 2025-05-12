@@ -1,0 +1,47 @@
+# Uncomment the next line to define a global platform for your project
+
+#建议使用github源，pod install前请检查终端代理网络是否通畅，如遇失败可尝试使用pod install --repo-update命令
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '13.0'
+
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+         end
+    end
+  end
+end
+
+target 'iOSDemo' do
+  use_frameworks!
+  
+  #Taku SDK
+  pod 'AnyThinkiOS','6.4.76'
+
+  #DebugUI,调试时建议接入,上线后去掉
+  pod 'AnyThinkDebugUISDK'
+  
+  #为了降低Demo首次pod安装时间，Demo并未完整列举所有adapter适配器的安装，若您需要使用自己的AppID/AppKey进行测试，请替换您选用的adapter适配器后，重新执行pod install --repo-update安装
+  #Demo所用适配器
+  pod 'AnyThinkBaiduSDKAdapter','6.4.76'
+  pod 'AnyThinkKuaiShouSDKAdapter','6.4.76'
+  pod 'AnyThinkTTSDKAdapter','6.4.76'
+  pod 'AnyThinkGDTSDKAdapter','6.4.76'
+  
+  #Admob Interactive-media-ads广告类型,iOS13+
+  pod 'AnyThinkIMASDKAdapter','6.4.76'
+ 
+  #第三方数据统计SDK
+#  pod 'AppsFlyerFramework'
+#  pod 'Adjust'
+#  pod 'FirebaseAnalytics'
+ 
+ #Demo UI依赖的第三库
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'MJRefresh'
+ 
+end
