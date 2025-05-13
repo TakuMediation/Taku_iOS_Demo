@@ -115,12 +115,12 @@
     if (!config) {
         ATDemoLog(@"⚠️native_loadExtraConfigAppend_KuaiShou_SlideOrClickAble: Input config instance is null");
     }
-    //开启根据宽度，请求自适应高度的广告，仅部分广告平台有效（穿山甲、JD、快手）
+    //快手原生广告滑一滑和点击相关控制
     //#import <AnyThinkKuaiShouAdapter/ATKSExtraConfig.h>
 //    
 //    [config setValue:@{ // 不传的话,即字典为空 全部默认为1
 //        ATKSNativeAdIsClickableKey : @1,         // NSNumer类型 0:关闭 1:开启
-//        ATKSNativeAdIsSlidableKey : @1,          // NSNumer类型  0:关闭 1:开启
+//        ATKSNativeAdIsSlidableKey : @1,          // NSNumer类型 0:关闭 1:开启
 //        ATKSNativeAdContainrIsSlidableKey : @1,  // NSNumer类型 0:关闭 1:开启
 //        ATKSNativeAdContainrIsClickableKey : @1} // NSNumer类型 0:关闭 1:开启
 //        forKey:ATKSNativeInteractionConfigKey];
