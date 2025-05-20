@@ -1,15 +1,13 @@
 //
-//  ATADFootView.h
+//  DemoADFootView.h
 //  AnyThingSDKDemo
 //
 //  Created by ltz on 2021/12/6.
 //
 
 #import <UIKit/UIKit.h>
-
-
-
-@interface ATADFootView : UIView
+ 
+@interface DemoADFootView : UIView
 
 @property (nonatomic, copy) void(^clickLoadBlock)(void);
 
@@ -42,6 +40,7 @@
 
 - (instancetype)initWithRemoveBtn;
 - (instancetype)initWithRemoveAndHidenBtn;
+
 @end
 
 

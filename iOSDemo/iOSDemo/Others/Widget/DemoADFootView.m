@@ -1,19 +1,19 @@
 //
-//  ATADFootView.m
+//  DemoADFootView.m
 //  AnyThingSDKDemo
 //
 //  Created by ltz on 2021/12/6.
 //
 
-#import "ATADFootView.h"
+#import "DemoADFootView.h"
 #import "Masonry.h"
 
-@interface ATADFootView()
+@interface DemoADFootView()
 @property (nonatomic, assign) BOOL isNeetRemove;
 @property (nonatomic, assign) BOOL isNeetHidenAndMove;
 @end
 
-@implementation ATADFootView
+@implementation DemoADFootView
 
 - (instancetype)initWithRemoveBtn
 {

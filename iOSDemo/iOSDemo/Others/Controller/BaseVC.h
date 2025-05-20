@@ -9,11 +9,11 @@
 #import "NaviBarView.h"
 #import "CustomTableViewCell.h"
 #import "NormalNavBar.h"
-#import "ATADFootView.h"
+#import "DemoADFootView.h"
 
 @interface BaseVC : UIViewController
 
-@property (nonatomic, strong) ATADFootView *footView;
+@property (nonatomic, strong) DemoADFootView *footView;
 @property (strong, nonatomic) NaviBarView * bar;
 @property (strong, nonatomic) NormalNavBar * nbar;
 @property (nonatomic, strong) NSArray *dataSource;

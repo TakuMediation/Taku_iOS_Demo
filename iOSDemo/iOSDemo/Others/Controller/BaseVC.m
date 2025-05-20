@@ -263,12 +263,12 @@
 }
 
 #pragma mark - lazy
-- (ATADFootView *)footView {
+- (DemoADFootView *)footView {
     if (!_footView) {
         if ([self isKindOfClass:[BannerVC class]]) {
-            _footView = [[ATADFootView alloc] initWithRemoveAndHidenBtn];
+            _footView = [[DemoADFootView alloc] initWithRemoveAndHidenBtn];
         }else {
-            _footView = [[ATADFootView alloc] init];
+            _footView = [[DemoADFootView alloc] init];
         }
     }
     return _footView;
