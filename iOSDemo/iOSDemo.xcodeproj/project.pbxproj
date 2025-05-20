@@ -614,6 +614,13 @@
 			path = "AdCheckTools(检查广告状态工具)";
 			sourceTree = "<group>";
 		};
+		CABDE17D2DDC45E9009991E0 /* 仅示例,不参与demo编译 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "仅示例,不参与demo编译";
+			sourceTree = "<group>";
+		};
 		CACC65CD2D93C27D00958DAE /* UploadAdInfo(自行上传广告数据工具) */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +694,7 @@
 		CAF3EB892DB74D84009BE9F2 /* CustomAdapter(自定义广告平台demo) */ = {
 			isa = PBXGroup;
 			children = (
+				CABDE17D2DDC45E9009991E0 /* 仅示例,不参与demo编译 */,
 				CA4CB4472DBA531E00D356EE /* Banner(横幅) */,
 				CA4CB44F2DBA531E00D356EE /* Base(基础类&C2S) */,
 				CA4CB4542DBA531E00D356EE /* Interstitial(插屏) */,

@@ -42,6 +42,7 @@
         }
     }];
     
+    //含欧盟地区初始化流程
 //    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
 //    [[AdSDKManager sharedManager] initSDK_EU:^{
 //        //初始化广告SDK完成
@@ -61,6 +62,7 @@
  
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     if (@available(iOS 14, *)) {
+        //申请ATT权限 - 注意！若使用含欧盟地区初始化流程，请在initSDK_EU方法中调用申请ATT权限
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
             
         }];

@@ -109,11 +109,12 @@
     
     //展示广告,在App原window中展示
     [[ATAdManager sharedManager] showSplashWithPlacementID:SplashPlacementID config:config window:[UIApplication sharedApplication].keyWindow inViewController:self.tabBarController extra:configDict delegate:self];
+    
     //没有tabBarController，仅有navigationController 时，使用下方
 //    [[ATAdManager sharedManager] showSplashWithPlacementID:SplashPlacementID config:config window:[UIApplication sharedApplication].keyWindow inViewController:self.navigationController extra:configDict delegate:self];
 }
 
-#pragma mark - AppOpen FooterView
+#pragma mark - 底部可自定义 FooterView
 /// 可选接入开屏底部LogoView
 - (UIView *)footLogoView {
     
@@ -174,6 +175,7 @@
 - (void)didTimeoutLoadingSplashADWithPlacementID:(NSString *)placementID {
     //超时了，首页加载完成后进入首页
     [self showLog:[NSString stringWithFormat:@"开屏超时了"]];
+    //进入首页
     [self enterHomeVC];
 }
 

@@ -115,7 +115,7 @@
     if (!config) {
         ATDemoLog(@"⚠️native_loadExtraConfigAppend_KuaiShou_SlideOrClickAble: Input config instance is null");
     }
-    //快手原生广告滑一滑和点击相关控制
+    //快手原生广告滑一滑和点击相关控制,请引入头文件
     //#import <AnyThinkKuaiShouAdapter/ATKSExtraConfig.h>
 //    
 //    [config setValue:@{ // 不传的话,即字典为空 全部默认为1
@@ -124,6 +124,9 @@
 //        ATKSNativeAdContainrIsSlidableKey : @1,  // NSNumer类型 0:关闭 1:开启
 //        ATKSNativeAdContainrIsClickableKey : @1} // NSNumer类型 0:关闭 1:开启
 //        forKey:ATKSNativeInteractionConfigKey];
+    
+    //例如，设置ATKSNativeAdIsSlidableKey 和 ATKSNativeAdContainrIsSlidableKey 为 @1，ATKSNativeAdIsClickableKey和ATKSNativeAdContainrIsClickableKey为 @0。
+    //上述效果是在广告上面滑动其滚动容器会滑动，且单击广告视图允许跳转。
 }
 
 #pragma mark - 开屏广告自定义跳过按钮

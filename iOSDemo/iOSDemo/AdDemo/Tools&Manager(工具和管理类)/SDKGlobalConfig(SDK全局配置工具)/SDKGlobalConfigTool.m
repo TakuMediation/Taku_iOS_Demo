@@ -24,8 +24,14 @@
     [[ATSDKGlobalSetting sharedManager] setCustomData:@{key:value} forPlacementID:placementID];
 }
 
-/// 设置自定义配置
+/// 设置自定义配置，报表或特殊功能中使用
 + (void)setCustomData:(NSDictionary *)dataDict {
+    
+    //常用的Key 可在报表体现
+//    extern NSString *const kATCustomDataUserIDKey;//用户ID 值是String
+//    extern NSString *const kATCustomDataAgeKey;//用户年龄 值是Integer
+//    extern NSString *const kATCustomDataGenderKey;//用户性别 值是Integer
+    
     [ATSDKGlobalSetting sharedManager].customData = dataDict;
 }
 

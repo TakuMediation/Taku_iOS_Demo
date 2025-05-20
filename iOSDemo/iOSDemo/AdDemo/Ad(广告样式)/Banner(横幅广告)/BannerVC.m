@@ -97,28 +97,26 @@
     }
 }
  
-#pragma mark - 移除广告
-/// 通过demo移除按钮点击来移除banner广告
-- (void)removeAdButtonClickAction {
-    [self removeAd];
-}
-
-#pragma mark - 隐藏广告
-- (void)hiddenAdButtonClickAction {
-    self.bannerView.hidden = YES;
-}
-
-#pragma mark - 隐藏后重新显示广告
-- (void)reshowAdButtonClickAction {
-    self.bannerView.hidden = NO;
-}
-
-#pragma mark - 移除广告
+#pragma mark - 移除广告(可选接入)
 - (void)removeAd {
     //移除视图以及引用
     self.bannerView.delegate = nil;
     [self.bannerView removeFromSuperview];
     self.bannerView = nil;
+}
+
+#pragma mark - Demo按钮操作
+/// 通过demo移除按钮点击来移除banner广告
+- (void)removeAdButtonClickAction {
+    [self removeAd];
+}
+ 
+- (void)hiddenAdButtonClickAction {
+    self.bannerView.hidden = YES;
+}
+ 
+- (void)reshowAdButtonClickAction {
+    self.bannerView.hidden = NO;
 }
  
 - (void)viewDidDisappear:(BOOL)animated {
