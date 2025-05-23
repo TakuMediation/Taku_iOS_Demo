@@ -6,6 +6,7 @@
 //
 
 #import "SDKGlobalConfigTool.h"
+#import <AnyThinkPangleAdapter/AnyThinkPangleAdapter.h>
 
 @implementation SDKGlobalConfigTool
 
@@ -114,4 +115,23 @@
     [[ATAdManager sharedManager] setExludePlacementid:placementID networkFirmIDArray:networkFirmIDArr];
 }
  
+/// 海外Pangle隐私配置
+/// Pangle SDK 在v7.1+ 移除了 COPPA及CCPA设置，统一使用 PAConsent 。Taku SDK 在 v6.4.56 及以上版本中增加了对应的API来方便您根据情况自行设置。
+/// 注：未设置时 Pangle SDK 默认状态为 Consent。
++ (void)pangleCOPPACCPASetting {
+    
+//#import <AnyThinkPangleAdapter/AnyThinkPangleAdapter.h>
+//
+//typedef NS_ENUM(NSInteger, ATPAGPAConsentType) {
+//    ATPAGPAConsentTypeConsent     =  0,   ///< User has granted the consent
+//    ATPAGPAConsentTypeNoConsent   =  1,   ///< User doesn't grant consent
+//};
+ 
+//    //想要填充广告用此方法
+//    [ATPangleConfigure setPAGPAConsentType:ATPAGPAConsentTypeConsent];
+//
+//    //不填充广告用此方法
+//    [ATPangleConfigure setPAGPAConsentType:ATPAGPAConsentTypeNoConsent];
+}
+
 @end

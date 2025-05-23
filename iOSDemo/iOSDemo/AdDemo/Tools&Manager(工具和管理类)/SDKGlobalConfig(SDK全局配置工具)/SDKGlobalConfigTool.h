@@ -52,5 +52,10 @@
 ///   - networkFirmIDArr: 广告平台编号ID，例如@[@(ATNetworkFirmIDTypeFacebook),@(ATNetworkFirmIDTypeAdmob),@(ATNetworkFirmIDTypeCSJ)]
 + (void)enableAdPlatformFilterWithPlacementID:(NSString *)placementID networkFirmIDArray:(NSArray <NSNumber *>*)networkFirmIDArr;
  
+/// 海外Pangle隐私配置
+/// Pangle SDK 在v7.1+ 移除了 COPPA及CCPA设置，统一使用 PAConsent 。Taku SDK 在 v6.4.56 及以上版本中增加了对应的API来方便您根据情况自行设置。
+/// 注：未设置时 Pangle SDK 默认状态为 Consent。
++ (void)pangleCOPPACCPASetting;
+
 @end
  
