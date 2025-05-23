@@ -68,6 +68,9 @@ static AdSDKManager *sharedManager = nil;
     
     //SDK自定义参数配置，单项
     [SDKGlobalConfigTool setCustomChannel:@"渠道xxx"];
+    
+    //可选接入，若使用了Pangle广告平台，设置海外隐私项目
+//    [SDKGlobalConfigTool pangleCOPPACCPASetting];
 
     //SDK自定义参数配置，多项一起，其他配置在SDKGlobalConfigTool类中查看
 //    [SDKGlobalConfigTool setCustomData:@{kATCustomDataUserIDKey:@"test_custom_user_id",
