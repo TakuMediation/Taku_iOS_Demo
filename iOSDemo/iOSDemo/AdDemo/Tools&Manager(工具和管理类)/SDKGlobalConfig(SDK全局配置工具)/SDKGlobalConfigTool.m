@@ -6,7 +6,6 @@
 //
 
 #import "SDKGlobalConfigTool.h"
-#import <AnyThinkPangleAdapter/AnyThinkPangleAdapter.h>
 
 @implementation SDKGlobalConfigTool
 
