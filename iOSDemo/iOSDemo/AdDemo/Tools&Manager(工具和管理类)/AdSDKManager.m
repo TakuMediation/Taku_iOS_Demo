@@ -38,22 +38,28 @@ static AdSDKManager *sharedManager = nil;
 /// GDPR/UMP流程初始化
 - (void)initSDK_EU:(AdManagerInitFinishBlock)block {
     [[ATAPI sharedInstance] showGDPRConsentDialogInViewController:[UIApplication sharedApplication].keyWindow.rootViewController dismissalCallback:^{
-        if (@available(iOS 14, *)) {
-            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-                
-            }];
-            [self initSDK];
-            if (block) {
-                block();
-            }
-        }else {
-            [self initSDK];
-            if (block) {
-                block();
+        // 这里示例在用户同意，或者数据同意未知情况下的非首次启动申请ATT权限，您可以根据应用实际情况进行调整。
+        if (([ATAPI sharedInstance].dataConsentSet == ATDataConsentSetUnknown && ([[NSUserDefaults standardUserDefaults] boolForKey:@"GDPR_First_Flag"] == YES))
+            
+            || [ATAPI sharedInstance].dataConsentSet == ATDataConsentSetPersonalized) {
+            
+            if (@available(iOS 14, *)) {
+                [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+                    
+                }];
             }
         }
+        
+        [self initSDK];
+        if (block) {
+            block();
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"GDPR_First_Flag"];
     }];
 }
+
+
  
 /// 初始化SDK，此方法不会同时初始化广告平台SDK
 - (void)initSDK {
