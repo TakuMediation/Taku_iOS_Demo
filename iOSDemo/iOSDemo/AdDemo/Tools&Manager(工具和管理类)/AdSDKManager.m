@@ -58,8 +58,6 @@ static AdSDKManager *sharedManager = nil;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"GDPR_First_Flag"];
     }];
 }
-
-
  
 /// 初始化SDK，此方法不会同时初始化广告平台SDK
 - (void)initSDK {
