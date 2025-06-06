@@ -83,6 +83,7 @@
 #pragma mark - Show Ad 展示广告
 /// 当前的keywindow下，控制器底部有Tabbar或NavigationBar显示的情况
 - (void)showSplash {
+    
     //场景统计功能，可选接入
     [[ATAdManager sharedManager] entrySplashScenarioWithPlacementID:SplashPlacementID scene:SplashSceneID];
     
@@ -198,6 +199,9 @@
 - (void)splashDidShowForPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {
     ATDemoLog(@"splashDidShowForPlacementID:%@",placementID);
     [self showLog:[NSString stringWithFormat:@"splashDidShowForPlacementID:%@ ",placementID]];
+    
+    //展示广告后可以隐藏，避免遮挡
+    [self.launchLoadingView dismiss];
 }
 
 /// 开屏广告已关闭
