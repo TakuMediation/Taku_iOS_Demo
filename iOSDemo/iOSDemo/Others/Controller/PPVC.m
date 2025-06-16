@@ -8,24 +8,40 @@
 
 #import "PPVC.h"
 
-@interface PPVC () <WKNavigationDelegate>
+typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
+    PPVCDisplayModeList,        // 显示选项列表
+    PPVCDisplayModePrivacyPolicy // 显示隐私政策
+};
 
+@interface PPVC () <WKNavigationDelegate, UITableViewDataSource, UITableViewDelegate>
+
+// 列表模式相关
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISwitch *personalizedAdSwitch;
+@property (nonatomic, assign) BOOL isSDKInitialized;
+@property (nonatomic, assign) BOOL isPersonalizedAdEnabled;
+
+// 隐私政策模式相关
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) UIButton *agreeButton;
 @property (nonatomic, strong) UIButton *rejectButton;
+
+// 通用属性
 @property (nonatomic, copy) void(^agreementCallback)(void);
 @property (nonatomic, strong) UIWindow *presentWindow;
+@property (nonatomic, assign) PPVCDisplayMode displayMode;
+@property (nonatomic, strong) UIView *containerView;
 
 @end
 
 @implementation PPVC
 
-+ (void)showPrivacyPolicyWithAgreementCallback:(void(^)(void))agreementCallback {
++ (void)showSDKManagementWithAgreementCallback:(void(^)(void))agreementCallback {
     // 检查是否为首次启动
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL hasShownPrivacyPolicy = [userDefaults boolForKey:@"HasShownPrivacyPolicy"];
+    BOOL hasShownSDKManagement = [userDefaults boolForKey:@"HasShownSDKManagement"];
     
-    if (hasShownPrivacyPolicy) {
+    if (hasShownSDKManagement) {
         // 非首次启动，直接执行回调
         if (agreementCallback) {
             agreementCallback();
@@ -33,11 +49,12 @@
         return;
     }
     
-    // 首次启动，展示隐私政策页面
+    // 首次启动，展示SDK管理页面
     PPVC *ppvc = [[PPVC alloc] init];
     ppvc.agreementCallback = agreementCallback;
+    ppvc.displayMode = PPVCDisplayModeList;
     
-    // 创建新的window来展示隐私政策页面
+    // 创建新的window来展示SDK管理页面
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.windowLevel = UIWindowLevelAlert;
     window.backgroundColor = [UIColor clearColor];
@@ -52,50 +69,121 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
-    [self setupUI];
-    [self loadPrivacyPolicy];
+    // 初始化状态
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.isSDKInitialized = [userDefaults boolForKey:@"IsSDKInitialized"];
+    self.isPersonalizedAdEnabled = [userDefaults boolForKey:@"IsPersonalizedAdEnabled"];
+    
+    [self setupContainerView];
+    
+    if (self.displayMode == PPVCDisplayModeList) {
+        [self setupListUI];
+    } else {
+        [self setupPrivacyPolicyUI];
+        [self loadPrivacyPolicy];
+    }
 }
 
-- (void)setupUI {
-    // 创建容器视图
-    UIView *containerView = [[UIView alloc] init];
-    containerView.backgroundColor = [UIColor whiteColor];
-    containerView.layer.cornerRadius = 12.0;
-    containerView.layer.masksToBounds = YES;
-    [self.view addSubview:containerView];
+- (void)setupContainerView {
+    if (self.displayMode == PPVCDisplayModeList) {
+        // SDK管理页面 - 全屏显示
+        self.view.backgroundColor = [UIColor whiteColor];
+        
+        self.containerView = [[UIView alloc] init];
+        self.containerView.backgroundColor = [UIColor whiteColor];
+        self.containerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:self.containerView];
+        
+        // 全屏约束
+        [NSLayoutConstraint activateConstraints:@[
+            [self.containerView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+            [self.containerView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+            [self.containerView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+            [self.containerView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
+        ]];
+    } else {
+        // 隐私政策页面 - 非全屏显示
+        self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        
+        self.containerView = [[UIView alloc] init];
+        self.containerView.backgroundColor = [UIColor whiteColor];
+        self.containerView.layer.cornerRadius = 12.0;
+        self.containerView.layer.masksToBounds = YES;
+        self.containerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:self.containerView];
+        
+        // 获取屏幕尺寸
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        CGFloat containerWidth = screenWidth * 0.85;  // 屏幕宽度的85%
+        CGFloat containerHeight = screenHeight * 0.7; // 屏幕高度的70%
+        
+        // 设置容器视图约束 - 基于屏幕尺寸的百分比
+        [NSLayoutConstraint activateConstraints:@[
+            [self.containerView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+            [self.containerView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
+            [self.containerView.widthAnchor constraintEqualToConstant:containerWidth],
+            [self.containerView.heightAnchor constraintEqualToConstant:containerHeight]
+        ]];
+    }
+}
+
+- (void)setupListUI {
+    // 创建标题标签
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.text = @"iOS Demo";
+    titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor blackColor];
+    [self.containerView addSubview:titleLabel];
     
-    // 设置容器视图约束（非全屏，根据屏幕尺寸动态调整）
-    containerView.translatesAutoresizingMaskIntoConstraints = NO;
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    CGFloat containerWidth = screenWidth * 0.85;  // 屏幕宽度的85%
-    CGFloat containerHeight = screenHeight * 0.7; // 屏幕高度的70%
+    // 创建表格视图
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.rowHeight = 80;
+    [self.containerView addSubview:self.tableView];
+    
+    // 设置约束
+    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [NSLayoutConstraint activateConstraints:@[
-        [containerView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
-        [containerView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
-        [containerView.widthAnchor constraintEqualToConstant:containerWidth],
-        [containerView.heightAnchor constraintEqualToConstant:containerHeight]
+        // 标题约束
+        [titleLabel.topAnchor constraintEqualToAnchor:self.containerView.topAnchor constant:20],
+        [titleLabel.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor constant:20],
+        [titleLabel.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor constant:-20],
+        [titleLabel.heightAnchor constraintEqualToConstant:30],
+        
+        // 表格视图约束
+        [self.tableView.topAnchor constraintEqualToAnchor:titleLabel.bottomAnchor constant:10],
+        [self.tableView.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor],
+        [self.tableView.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor],
+        [self.tableView.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor]
     ]];
-    
+}
+
+- (void)setupPrivacyPolicyUI {
     // 创建标题标签
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.text = @"隐私政策";
     titleLabel.font = [UIFont boldSystemFontOfSize:18];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor blackColor];
-    [containerView addSubview:titleLabel];
+    [self.containerView addSubview:titleLabel];
     
     // 创建WebView
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
     self.webView.navigationDelegate = self;
     self.webView.backgroundColor = [UIColor whiteColor];
-    [containerView addSubview:self.webView];
+    [self.containerView addSubview:self.webView];
     
     // 创建按钮容器
     UIView *buttonContainer = [[UIView alloc] init];
-    [containerView addSubview:buttonContainer];
+    [self.containerView addSubview:buttonContainer];
     
     // 创建同意按钮
     self.agreeButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -126,21 +214,21 @@
     
     [NSLayoutConstraint activateConstraints:@[
         // 标题约束
-        [titleLabel.topAnchor constraintEqualToAnchor:containerView.topAnchor constant:20],
-        [titleLabel.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor constant:20],
-        [titleLabel.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor constant:-20],
+        [titleLabel.topAnchor constraintEqualToAnchor:self.containerView.topAnchor constant:20],
+        [titleLabel.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor constant:20],
+        [titleLabel.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor constant:-20],
         [titleLabel.heightAnchor constraintEqualToConstant:30],
         
         // WebView约束
         [self.webView.topAnchor constraintEqualToAnchor:titleLabel.bottomAnchor constant:10],
-        [self.webView.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor constant:20],
-        [self.webView.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor constant:-20],
+        [self.webView.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor constant:20],
+        [self.webView.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor constant:-20],
         [self.webView.bottomAnchor constraintEqualToAnchor:buttonContainer.topAnchor constant:-10],
         
         // 按钮容器约束
-        [buttonContainer.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor constant:20],
-        [buttonContainer.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor constant:-20],
-        [buttonContainer.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor constant:-20],
+        [buttonContainer.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor constant:20],
+        [buttonContainer.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor constant:-20],
+        [buttonContainer.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor constant:-20],
         [buttonContainer.heightAnchor constraintEqualToConstant:50],
         
         // 同意按钮约束（左边）
@@ -174,18 +262,150 @@
     }
 }
 
-#pragma mark - Button Actions
+#pragma mark - UITableView DataSource
 
-- (void)agreeButtonTapped {
-    // 用户点击同意按钮，保存已展示隐私政策的标记
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:YES forKey:@"HasShownPrivacyPolicy"];
-    [userDefaults synchronize];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"SDKManagementCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+    }
+    
+    switch (indexPath.row) {
+        case 0: {
+            cell.textLabel.text = @"初始化SDK";
+            cell.detailTextLabel.text = @"用户同意隐私协议后，进行SDK初始化";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+        }
+        case 1: {
+            cell.textLabel.text = @"展示广告";
+            cell.detailTextLabel.text = @"需要初始化SDK后才能进行广告展示";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            break;
+        }
+        case 2: {
+            cell.textLabel.text = @"个性化广告服务开关";
+            NSString *status = self.isPersonalizedAdEnabled ? @"开" : @"关";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"当前状态：%@", status];
+            
+            // 添加开关控件
+            if (!self.personalizedAdSwitch) {
+                self.personalizedAdSwitch = [[UISwitch alloc] init];
+                [self.personalizedAdSwitch addTarget:self action:@selector(personalizedAdSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+            }
+            self.personalizedAdSwitch.on = self.isPersonalizedAdEnabled;
+            cell.accessoryView = self.personalizedAdSwitch;
+            break;
+        }
+    }
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0: {
+            // 初始化SDK
+            [self initializeSDK];
+            break;
+        }
+        case 1: {
+            // 展示广告
+            [self showAdvertisement];
+            break;
+        }
+        case 2: {
+            // 个性化广告服务开关 - 点击行也可以切换开关
+            self.personalizedAdSwitch.on = !self.personalizedAdSwitch.on;
+            [self personalizedAdSwitchChanged:self.personalizedAdSwitch];
+            break;
+        }
+    }
+}
+
+#pragma mark - Actions
+
+- (void)initializeSDK {
+    if (self.isSDKInitialized) {
+        [self showAlert:@"提示" message:@"SDK已经初始化完成"];
+        return;
+    }
+    
+    // 切换到隐私政策页面
+    self.displayMode = PPVCDisplayModePrivacyPolicy;
+    
+    // 清除当前UI
+    for (UIView *subview in self.containerView.subviews) {
+        [subview removeFromSuperview];
+    }
+    
+    // 设置隐私政策UI
+    [self setupPrivacyPolicyUI];
+    [self loadPrivacyPolicy];
+}
+
+- (void)showAdvertisement {
+    if (!self.isSDKInitialized) {
+        [self showAlert:@"提示" message:@"请先进行SDK初始化"];
+        return;
+    }
+    
+    // 执行回调并关闭SDK管理页面
     if (self.agreementCallback) {
         self.agreementCallback();
     }
-    [self dismissPrivacyPolicy];
+    [self dismissSDKManagement];
+}
+
+- (void)personalizedAdSwitchChanged:(UISwitch *)sender {
+    self.isPersonalizedAdEnabled = sender.on;
+    
+    // 保存状态
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:self.isPersonalizedAdEnabled forKey:@"IsPersonalizedAdEnabled"];
+    [userDefaults synchronize];
+    
+    [[ATAPI sharedInstance] setPersonalizedAdState:self.isPersonalizedAdEnabled?ATPersonalizedAdStateType:ATNonpersonalizedAdStateType];
+
+    // 更新对应cell的副标题文本
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    NSString *status = self.isPersonalizedAdEnabled ? @"开" : @"关";
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"当前状态：%@", status];
+}
+
+- (void)agreeButtonTapped {
+    // 用户点击同意按钮，保存已展示SDK管理的标记和SDK初始化状态
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:YES forKey:@"HasShownSDKManagement"];
+    [userDefaults setBool:YES forKey:@"IsSDKInitialized"];
+    [userDefaults synchronize];
+    
+    self.isSDKInitialized = YES;
+    
+    // 显示初始化成功提示，然后返回SDK管理页面
+    [self showAlert:@"初始化成功" message:@"SDK初始化完成，现在可以展示广告了" completion:^{
+        // 切换回SDK管理页面
+        self.displayMode = PPVCDisplayModeList;
+        
+        // 移除当前容器视图
+        [self.containerView removeFromSuperview];
+        self.containerView = nil;
+        
+        // 重新设置容器视图和列表UI
+        [self setupContainerView];
+        [self setupListUI];
+    }];
 }
 
 - (void)rejectButtonTapped {
@@ -193,10 +413,25 @@
     exit(0);
 }
 
-- (void)dismissPrivacyPolicy {
+- (void)dismissSDKManagement {
     [self.presentWindow resignKeyWindow];
     self.presentWindow.hidden = YES;
     self.presentWindow = nil;
+}
+
+- (void)showAlert:(NSString *)title message:(NSString *)message {
+    [self showAlert:title message:message completion:nil];
+}
+
+- (void)showAlert:(NSString *)title message:(NSString *)message completion:(void(^)(void))completion {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (completion) {
+            completion();
+        }
+    }];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - WKNavigationDelegate
