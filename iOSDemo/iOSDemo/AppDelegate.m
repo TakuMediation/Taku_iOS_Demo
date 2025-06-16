@@ -29,8 +29,7 @@
     [self setupDemoUI];
     
     //Demo首次启动展示隐私政策弹窗，实际是否需要根据您的产品需求来决定是否显示
-    [PPVC showPrivacyPolicyWithAgreementCallback:^{
-        
+    [PPVC showSDKManagementWithAgreementCallback:^{
         //点击同意
         
         //开屏广告展示启动图
@@ -47,7 +46,6 @@
                 [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
             }
         }];
-        
     }];
     
     //含欧盟地区初始化流程
