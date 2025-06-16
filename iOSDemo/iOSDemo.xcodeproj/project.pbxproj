@@ -40,6 +40,7 @@
 		CA5229D12D55FC3F00FB3D9C /* AdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5229D02D55FC3F00FB3D9C /* AdCell.m */; };
 		CA5AF6192D57601500D48D26 /* FeedTemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AF6182D57601500D48D26 /* FeedTemplateVC.m */; };
 		CA643BE62D3F6E01006D9512 /* FeedSelfRenderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA643BE52D3F6E01006D9512 /* FeedSelfRenderVC.m */; };
+		CA6807CD2DFFFD61005879D4 /* PPVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6807CC2DFFFD61005879D4 /* PPVC.m */; };
 		CA81164E2D8BCA7B00D0A5D7 /* SplashWithCustomBGVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA81164D2D8BCA7B00D0A5D7 /* SplashWithCustomBGVC.m */; };
 		CAA063DD2DBDE15A006B6C38 /* AdCheckTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA063DC2DBDE15A006B6C38 /* AdCheckTool.m */; };
 		CAA71CB82DAF6E4A00DF3CE1 /* DrawCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAA71CB72DAF6E4A00DF3CE1 /* DrawCustomCell.xib */; };
@@ -160,6 +161,8 @@
 		CA643BE42D3F6E01006D9512 /* FeedSelfRenderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedSelfRenderVC.h; sourceTree = "<group>"; };
 		CA643BE52D3F6E01006D9512 /* FeedSelfRenderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedSelfRenderVC.m; sourceTree = "<group>"; };
 		CA643BF02D3F7BBF006D9512 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		CA6807CB2DFFFD61005879D4 /* PPVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPVC.h; sourceTree = "<group>"; };
+		CA6807CC2DFFFD61005879D4 /* PPVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPVC.m; sourceTree = "<group>"; };
 		CA81164C2D8BCA7B00D0A5D7 /* SplashWithCustomBGVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashWithCustomBGVC.h; sourceTree = "<group>"; };
 		CA81164D2D8BCA7B00D0A5D7 /* SplashWithCustomBGVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashWithCustomBGVC.m; sourceTree = "<group>"; };
 		CAA063DB2DBDE15A006B6C38 /* AdCheckTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdCheckTool.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 		89255FBD2D2AE64800995FDE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA6807CB2DFFFD61005879D4 /* PPVC.h */,
+				CA6807CC2DFFFD61005879D4 /* PPVC.m */,
 				89255FBE2D2AE66B00995FDE /* BaseVC.h */,
 				89255FBF2D2AE66B00995FDE /* BaseVC.m */,
 				CA2715AF2D8C02540079E0A0 /* BaseNavigationController.h */,
@@ -836,9 +841,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -853,9 +862,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -879,6 +892,7 @@
 				CA4706512D5C8C32003E7AD6 /* TestModeTool.m in Sources */,
 				CA3CCEA02D3B9C5200A8BC7F /* LaunchLoadingView.m in Sources */,
 				CA643BE62D3F6E01006D9512 /* FeedSelfRenderVC.m in Sources */,
+				CA6807CD2DFFFD61005879D4 /* PPVC.m in Sources */,
 				CADE55622D32641600E492CC /* SelfRenderView.m in Sources */,
 				899E18B12D2D7E9F005394C9 /* RewardedVC.m in Sources */,
 				CA47065F2D5F39D8003E7AD6 /* DrawAdCell.m in Sources */,
