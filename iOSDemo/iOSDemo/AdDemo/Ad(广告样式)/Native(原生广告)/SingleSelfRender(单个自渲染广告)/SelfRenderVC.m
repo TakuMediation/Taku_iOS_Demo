@@ -344,9 +344,5 @@
     [self addLogTextView];
     [self addFootView];
 }
-
-- (void)dealloc {
-    NSLog(@"SelfRenderVC dealloc");
-}
    
 @end 
