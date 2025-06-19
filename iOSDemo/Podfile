@@ -27,7 +27,7 @@ target 'iOSDemo' do
   #Demo所用适配器，若想使用更多广告平台，请前往SDK下载中心获取:https://app.takuad.com/m/sdk/download?type=iOS
   pod 'AnyThinkBaiduSDKAdapter','6.4.76.3'
   pod 'AnyThinkKuaiShouSDKAdapter','6.4.76'
-  pod 'AnyThinkTTSDKAdapter','6.4.76.4'
+  pod 'AnyThinkTTSDKAdapter','6.4.76.5'
   pod 'AnyThinkGDTSDKAdapter','6.4.76'
   
   #Admob Interactive-media-ads广告类型,iOS13+
