@@ -361,11 +361,11 @@ typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
         return;
     }
     
+    [self dismissSDKManagement];
     // 执行回调并关闭SDK管理页面
     if (self.agreementCallback) {
         self.agreementCallback();
     }
-    [self dismissSDKManagement];
 }
 
 - (void)personalizedAdSwitchChanged:(UISwitch *)sender {

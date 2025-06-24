@@ -27,14 +27,12 @@
  
     //布局demoUI,无需接入
     [self setupDemoUI];
-    
-    //Demo首次启动展示隐私政策弹窗，实际是否需要根据您的产品需求来决定是否显示
-    [PPVC showSDKManagementWithAgreementCallback:^{
-        //点击同意
-        
+     
+    [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
+ 
         //开屏广告展示启动图
         [[AdSDKManager sharedManager] addLaunchLoadingView];
-        //初始化SDK，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
+        //初始化SDK，必须接入，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
         [[AdSDKManager sharedManager] initSDK];
         //初始化广告SDK完成
         
@@ -47,6 +45,7 @@
             }
         }];
     }];
+    
     
     //含欧盟地区初始化流程
 //    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
