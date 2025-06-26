@@ -25,8 +25,14 @@
     //开启Demo日志打印
     DemoLogAccess(1);
  
-    //布局demoUI,无需接入
-    [self setupDemoUI];
+    // iOS 13以下版本仍使用传统方式
+    if (@available(iOS 13.0, *)) {
+        // iOS 13及以上版本使用Scene Delegate
+        // 在这里只进行SDK初始化，UI创建交给SceneDelegate处理
+    } else {
+        //布局demoUI,无需接入
+        [self setupDemoUI];
+    }
      
     [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
  
@@ -64,6 +70,22 @@
  
     return YES;
 }
+
+#pragma mark - UISceneSession lifecycle
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options API_AVAILABLE(ios(13.0)) {
+    // Called when a new scene session is being created.
+    // Use this method to select a configuration to create the new scene with.
+    UISceneConfiguration *configuration = [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    configuration.delegateClass = NSClassFromString(@"SceneDelegate");
+    return configuration;
+}
+
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions API_AVAILABLE(ios(13.0)) {
+    // Called when the user discards a scene session.
+    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+}
  
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     if (@available(iOS 14, *)) {
@@ -79,15 +101,15 @@
 #pragma mark - Demo UI 可忽略
 - (void)setupDemoUI {
     self.window = [UIWindow new];
-    self.window.backgroundColor = kHexColor(0xffffff);
+    self.window.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]; // kHexColor(0xffffff)
     if (@available(iOS 13.0, *)) {
        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     }
     
     // 访问苹果开发者官网，触发网络授权弹窗
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"https://developer.apple.com"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            // 无需处理返回结果
-        }] resume] ;
+        // 无需处理返回结果
+    }] resume];
       
     BaseNavigationController * nav = [[BaseNavigationController alloc] initWithRootViewController:[HomeViewController new]];
     self.window.rootViewController = nav;
