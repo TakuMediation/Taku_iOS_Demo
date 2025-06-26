@@ -17,7 +17,7 @@ target 'iOSDemo' do
   use_frameworks!
   
   #Taku SDK
-  pod 'AnyThinkiOS','6.4.76'
+  pod 'AnyThinkiOS','6.4.87'
 
   #DebugUI,调试时建议接入,上线后去掉
   pod 'AnyThinkDebugUISDK'
@@ -25,14 +25,14 @@ target 'iOSDemo' do
   #为了降低Demo首次pod安装时间，Demo并未完整列举所有Adapter适配器的安装，若您需要使用自己的AppID/AppKey进行测试，请替换您选用的Adapter适配器后，重新执行pod install --repo-update安装
   
   #Demo所用适配器，若想使用更多广告平台，请前往SDK下载中心获取:https://app.takuad.com/m/sdk/download?type=iOS
-  pod 'AnyThinkBaiduSDKAdapter','6.4.76.3'
-  pod 'AnyThinkKuaiShouSDKAdapter','6.4.76'
-  pod 'AnyThinkTTSDKAdapter','6.4.76.5'
-  pod 'AnyThinkGDTSDKAdapter','6.4.76'
+  pod 'AnyThinkBaiduSDKAdapter','6.4.87'
+  pod 'AnyThinkKuaiShouSDKAdapter','6.4.87'
+  pod 'AnyThinkTTSDKAdapter','6.4.87.2'
+  pod 'AnyThinkGDTSDKAdapter','6.4.87'
   
   #Admob Interactive-media-ads广告类型,iOS13+
-  pod 'AnyThinkIMASDKAdapter','6.4.76'
- 
+  pod 'AnyThinkIMASDKAdapter','6.4.87'
+   
   #第三方数据统计SDK
 #  pod 'AppsFlyerFramework'
 #  pod 'Adjust'
