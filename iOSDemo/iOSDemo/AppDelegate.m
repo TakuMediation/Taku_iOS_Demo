@@ -29,45 +29,46 @@
     if (@available(iOS 13.0, *)) {
         // iOS 13及以上版本使用Scene Delegate
         // 在这里只进行SDK初始化，UI创建交给SceneDelegate处理
+        // PPVC的调用将在SceneDelegate中进行
     } else {
         //布局demoUI,无需接入
         [self setupDemoUI];
-    }
-     
-    [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
- 
-        //开屏广告展示启动图
-        [[AdSDKManager sharedManager] addLaunchLoadingView];
-        //初始化SDK，必须接入，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
-        [[AdSDKManager sharedManager] initSDK];
-        //初始化广告SDK完成
         
-        //加载开屏广告
-        [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
-            //加载成功
-            if (isSuccess) {
-                //展示开屏广告
-                [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
-            }
-        }];
-    }];
-    
-    
-    //含欧盟地区初始化流程
-//    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
-//    [[AdSDKManager sharedManager] initSDK_EU:^{
-//        //初始化广告SDK完成
-//        
-//        //加载开屏广告
-//        [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
-//            //加载成功
-//            if (isSuccess) {
-//                //展示开屏广告
-//                [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
-//            }
-//        }];
-//    }];
+        // iOS 13以下版本在这里调用PPVC
+        [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
  
+            //开屏广告展示启动图
+            [[AdSDKManager sharedManager] addLaunchLoadingView];
+            //初始化SDK，必须接入，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
+            [[AdSDKManager sharedManager] initSDK];
+            //初始化广告SDK完成
+            
+            //加载开屏广告
+            [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
+                //加载成功
+                if (isSuccess) {
+                    //展示开屏广告
+                    [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
+                }
+            }];
+            
+            //含欧盟地区初始化流程
+        //    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
+        //    [[AdSDKManager sharedManager] initSDK_EU:^{
+        //        //初始化广告SDK完成
+        //
+        //        //加载开屏广告
+        //        [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
+        //            //加载成功
+        //            if (isSuccess) {
+        //                //展示开屏广告
+        //                [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
+        //            }
+        //        }];
+        //    }];
+        }];
+    }
+      
     return YES;
 }
 
