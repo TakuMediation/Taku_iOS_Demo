@@ -54,8 +54,8 @@ typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
     ppvc.agreementCallback = agreementCallback;
     ppvc.displayMode = PPVCDisplayModeList;
     
-    // 创建新的window来展示SDK管理页面
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 创建新的window来展示SDK管理页面，兼容Scene方式
+    UIWindow *window = [self createPresentationWindow];
     window.windowLevel = UIWindowLevelAlert;
     window.backgroundColor = [UIColor clearColor];
     window.rootViewController = ppvc;
@@ -442,6 +442,109 @@ typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
     NSLog(@"WebView加载失败: %@", error.localizedDescription);
+}
+
+#pragma mark - Private Methods
+
++ (UIWindow *)createPresentationWindow {
+    UIWindow *window = nil;
+    
+    if (@available(iOS 13.0, *)) {
+        // iOS 13及以上版本，优先使用Scene方式
+        UIWindowScene *windowScene = [self getCurrentWindowScene];
+        if (windowScene) {
+            window = [[UIWindow alloc] initWithWindowScene:windowScene];
+        } else {
+            // 如果获取不到WindowScene，降级使用传统方式
+            window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        }
+    } else {
+        // iOS 13以下版本，使用传统方式
+        window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    
+    return window;
+}
+
++ (UIWindowScene *)getCurrentWindowScene API_AVAILABLE(ios(13.0)) {
+    // 方法1: 从当前活跃的场景中获取
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        if ([scene isKindOfClass:[UIWindowScene class]]) {
+            UIWindowScene *windowScene = (UIWindowScene *)scene;
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                return windowScene;
+            }
+        }
+    }
+    
+    // 方法2: 从所有连接的场景中获取第一个WindowScene
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        if ([scene isKindOfClass:[UIWindowScene class]]) {
+            return (UIWindowScene *)scene;
+        }
+    }
+    
+    // 方法3: 从主窗口获取（如果存在）
+    UIWindow *keyWindow = [self getKeyWindow];
+    if (keyWindow && keyWindow.windowScene) {
+        return keyWindow.windowScene;
+    }
+    
+    return nil;
+}
+
++ (UIWindow *)getKeyWindow {
+    UIWindow *keyWindow = nil;
+    
+    if (@available(iOS 13.0, *)) {
+        // iOS 13及以上版本
+        NSSet<UIScene *> *connectedScenes = [UIApplication sharedApplication].connectedScenes;
+        for (UIScene *scene in connectedScenes) {
+            if ([scene isKindOfClass:[UIWindowScene class]]) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) {
+                        keyWindow = window;
+                        break;
+                    }
+                }
+                if (keyWindow) break;
+            }
+        }
+        
+        // 如果没有找到keyWindow，尝试获取第一个可见窗口
+        if (!keyWindow) {
+            for (UIScene *scene in connectedScenes) {
+                if ([scene isKindOfClass:[UIWindowScene class]]) {
+                    UIWindowScene *windowScene = (UIWindowScene *)scene;
+                    for (UIWindow *window in windowScene.windows) {
+                        if (!window.isHidden) {
+                            keyWindow = window;
+                            break;
+                        }
+                    }
+                    if (keyWindow) break;
+                }
+            }
+        }
+    } else {
+        // iOS 13以下版本
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        keyWindow = [UIApplication sharedApplication].keyWindow;
+        if (!keyWindow) {
+            // 如果keyWindow为空，尝试从windows数组中获取第一个可见窗口
+            for (UIWindow *window in [UIApplication sharedApplication].windows) {
+                if (!window.isHidden) {
+                    keyWindow = window;
+                    break;
+                }
+            }
+        }
+#pragma clang diagnostic pop
+    }
+    
+    return keyWindow;
 }
 
 @end
