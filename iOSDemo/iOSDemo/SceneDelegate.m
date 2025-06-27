@@ -53,22 +53,22 @@ API_AVAILABLE(ios(13.0))
                     [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
                 }
             }];
+            
+            //含欧盟地区初始化流程
+        //    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
+        //    [[AdSDKManager sharedManager] initSDK_EU:^{
+        //        //初始化广告SDK完成
+        //
+        //        //加载开屏广告
+        //        [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
+        //            //加载成功
+        //            if (isSuccess) {
+        //                //展示开屏广告
+        //                [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
+        //            }
+        //        }];
+        //    }];
         }];
-        
-        //含欧盟地区初始化流程
-    //    //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
-    //    [[AdSDKManager sharedManager] initSDK_EU:^{
-    //        //初始化广告SDK完成
-    //
-    //        //加载开屏广告
-    //        [[AdSDKManager sharedManager] loadSplashAdWithPlacementID:FirstAppOpen_PlacementID result:^(BOOL isSuccess) {
-    //            //加载成功
-    //            if (isSuccess) {
-    //                //展示开屏广告
-    //                [[AdSDKManager sharedManager] showSplashWithPlacementID:FirstAppOpen_PlacementID];
-    //            }
-    //        }];
-    //    }];
     });
 }
 
