@@ -28,8 +28,6 @@
     // iOS 13以下版本仍使用传统方式
     if (@available(iOS 13.0, *)) {
         // iOS 13及以上版本使用Scene Delegate
-        // 在这里只进行SDK初始化，UI创建交给SceneDelegate处理
-        // PPVC的调用将在SceneDelegate中进行
     } else {
         //布局demoUI,无需接入
         [self setupDemoUI];
@@ -106,12 +104,7 @@
     if (@available(iOS 13.0, *)) {
        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     }
-    
-    // 访问苹果开发者官网，触发网络授权弹窗
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"https://developer.apple.com"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        // 无需处理返回结果
-    }] resume];
-      
+ 
     BaseNavigationController * nav = [[BaseNavigationController alloc] initWithRootViewController:[HomeViewController new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

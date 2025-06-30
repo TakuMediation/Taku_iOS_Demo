@@ -37,6 +37,12 @@ typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
 @implementation PPVC
 
 + (void)showSDKManagementWithAgreementCallback:(void(^)(void))agreementCallback {
+    
+    // 访问苹果开发者官网，触发网络授权弹窗
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"https://developer.apple.com"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        // 无需处理返回结果
+    }] resume];
+    
     // 检查是否为首次启动
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL hasShownSDKManagement = [userDefaults boolForKey:@"HasShownSDKManagement"];

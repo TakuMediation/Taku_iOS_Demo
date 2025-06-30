@@ -20,21 +20,9 @@ API_AVAILABLE(ios(13.0))
         return;
     }
     
-    UIWindowScene *windowScene = (UIWindowScene *)scene;
-    
-    // 创建window
-    self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
-    self.window.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]; // kHexColor(0xffffff)
-    
-    if (@available(iOS 13.0, *)) {
-        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
-    }
-    
-    // 设置根视图控制器
-    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:[HomeViewController new]];
-    self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
-    
+    //Demo UI
+    [self setupDemoUI:scene];
+     
     // iOS 13+版本在这里调用PPVC，确保Scene已经完全建立
     dispatch_async(dispatch_get_main_queue(), ^{
         [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
@@ -70,6 +58,24 @@ API_AVAILABLE(ios(13.0))
         //    }];
         }];
     });
+}
+
+#pragma mark - Demo UI 可忽略
+- (void)setupDemoUI:(UIScene *)scene {
+    UIWindowScene *windowScene = (UIWindowScene *)scene;
+    
+    // 创建window
+    self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
+    self.window.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]; // kHexColor(0xffffff)
+    
+    if (@available(iOS 13.0, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
+    
+    // 设置根视图控制器
+    BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:[HomeViewController new]];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
