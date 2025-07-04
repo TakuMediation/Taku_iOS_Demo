@@ -97,10 +97,10 @@
     }
 }
  
-#pragma mark - 移除广告(可选接入)
+#pragma mark - 移除广告
 - (void)removeAd {
     //移除视图以及引用
-    self.bannerView.delegate = nil;
+    [self.bannerView destroyBanner];
     [self.bannerView removeFromSuperview];
     self.bannerView = nil;
 }
