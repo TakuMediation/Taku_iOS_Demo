@@ -5,8 +5,8 @@
 //  Created by ltz on 2025/2/8.
 //
 
-#import "BaseVC.h"
+#import "BaseOnlyBarVC.h"
  
-@interface FeedTemplateVC : BaseVC
+@interface FeedTemplateVC : BaseOnlyBarVC
 
 @end

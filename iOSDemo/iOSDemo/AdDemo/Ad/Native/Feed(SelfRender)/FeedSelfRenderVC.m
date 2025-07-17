@@ -31,6 +31,11 @@
 //场景ID，可选，可在后台生成。没有可传入空字符串
 #define Feed_Native_SelfRender_SceneID @""
  
+- (void)dealloc {
+    NSLog(@"FeedSelfRenderVC dealloc");
+    //销毁没有释放的广告
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
@@ -431,26 +436,16 @@
     return _dataSourceArray = dataSourceArray;
 }
  
-#pragma mark - Demo Needed 不用接入
+#pragma mark - Demo UI
 - (void)viewDidLoad {
     [super viewDidLoad];
      
-    [self setupDemoUI];
-    [self footerRefresh];
-}
-
-- (void)setupDemoUI {
-    [self addNormalBarWithTitle:self.title];
-  
     [self.view addSubview:self.feedTableView];
     [self.feedTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.nbar.mas_bottom);
         make.left.right.bottom.mas_equalTo(self.view);
     }];
+    [self footerRefresh];
 }
-
-- (void)dealloc {
-    NSLog(@"FeedSelfRenderVC dealloc");
-}
-
+ 
 @end

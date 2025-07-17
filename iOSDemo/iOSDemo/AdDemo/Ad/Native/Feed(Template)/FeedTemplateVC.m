@@ -38,6 +38,11 @@
 #define Feed_Cell_ExpressMediaViewWidth (kScreenW-30)
 #define Feed_Cell_ExpressMediaViewHeight (350 - kNavigationBarHeight - 150)
  
+- (void)dealloc {
+    NSLog(@"FeedTemplateVC dealloc");
+    //销毁没有释放的广告
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
@@ -347,26 +352,16 @@
     return _dataSourceArray = dataSourceArray;
 }
  
-#pragma mark - Demo Needed 不用接入
+#pragma mark - Demo UI
 - (void)viewDidLoad {
     [super viewDidLoad];
      
-    [self setupDemoUI];
-    [self footerRefresh];
-}
-
-- (void)setupDemoUI {
-    [self addNormalBarWithTitle:self.title];
-  
     [self.view addSubview:self.feedTableView];
     [self.feedTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.nbar.mas_bottom);
         make.left.right.bottom.mas_equalTo(self.view);
     }];
+    [self footerRefresh];
 }
-
-- (void)dealloc {
-    NSLog(@"FeedTemplateVC dealloc");
-}
-
+ 
 @end
