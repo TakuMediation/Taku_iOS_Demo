@@ -179,11 +179,11 @@
     @WeakObj(self)
     [self.footView setClickLoadBlock:^{
         @StrongObj(self);
-        [self loadAdButtonClickAction];
+        [self loadAd];
     }];
     [self.footView setClickShowBlock:^{
         @StrongObj(self);
-        [self showAdButtonClickAction];
+        [self showAd];
     }];
     [self.footView setClickHidenBlock:^{
         @StrongObj(self);
@@ -195,7 +195,7 @@
     }];
     [self.footView setClickReShowBlock:^{
         @StrongObj(self);
-        [self reshowAdButtonClickAction];
+        [self reshowAd];
     }];
     [self.footView setClickLogBlock:^{
         @StrongObj(self);
@@ -203,11 +203,11 @@
     }];
 }
 
-- (void)loadAdButtonClickAction {
+- (void)loadAd {
     
 }
 
-- (void)showAdButtonClickAction {
+- (void)showAd {
     
 }
  
@@ -219,7 +219,7 @@
     
 }
 
-- (void)reshowAdButtonClickAction {
+- (void)reshowAd {
     
 }
 

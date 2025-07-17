@@ -7,6 +7,7 @@
 //
 
 #import "PPVC.h"
+#import <AnyThinkSDK/AnyThinkSDK.h>
 
 typedef NS_ENUM(NSInteger, PPVCDisplayMode) {
     PPVCDisplayModeList,        // 显示选项列表
