@@ -17,6 +17,6 @@
 #import "LocalizationManager.h"
 #import "BaseVC.h"
 #import "Tools.h"
-#import "AdCheckTool.h"
+#import "BaseNormalBarVC.h"
  
 #endif /* PrefixHeader_pch */
