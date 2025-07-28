@@ -272,14 +272,6 @@
 - (void)splashCountdownTime:(NSInteger)countdown forPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {
     ATDemoLog(@"splashCountdownTime:%ld forPlacementID:%@",countdown,placementID);
     [self showLog:[NSString stringWithFormat:@"splashCountdownTime:%ld forPlacementID:%@",countdown,placementID]];
-    
-    // 如果添加了自定义跳过按钮，可在本回调中设置倒计时，需要自行处理按钮文本显示
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        NSString *title = [NSString stringWithFormat:@"%lds | Skip",countdown/1000];
-//        if (countdown/1000) {
-//            [customSkipButton setTitle:title forState:UIControlStateNormal];
-//        }
-//    });
 }
 
 /// 开屏广告zoomout view已点击，仅Pangle 腾讯优量汇 V+支持
