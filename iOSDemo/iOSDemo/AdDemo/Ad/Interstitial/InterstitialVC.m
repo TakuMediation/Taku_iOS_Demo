@@ -106,11 +106,10 @@
        return;
     }
     self.retryAttempt++;
-    
-    // 加载失败重试延迟时间建议 10 秒
-    NSInteger delaySec = 10;
+    // Calculate delay time: power of 2, maximum 8 seconds
+    NSInteger delaySec = pow(2, MIN(3, self.retryAttempt));
 
-    // 延迟重试加载广告
+    // Delayed retry loading ad
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delaySec * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self loadAd];
     });
