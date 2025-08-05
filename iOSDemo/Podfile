@@ -29,7 +29,7 @@ target 'iOSDemo' do
   pod 'AnyThinkKuaiShouSDKAdapter','6.4.87.3'
   pod 'AnyThinkTTSDKAdapter','6.4.87.3'
   pod 'AnyThinkGDTSDKAdapter','6.4.87.3'
-  pod 'AnyThinkGromoreSDKAdapter','6.4.87.3'
+  
   #Admob Interactive-media-ads广告类型,iOS13+
   pod 'AnyThinkIMASDKAdapter','6.4.87'
    
