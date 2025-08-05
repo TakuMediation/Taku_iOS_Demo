@@ -10,7 +10,6 @@
 #import "HomeViewController.h"
 #import "PPVC.h"
 #import "AdSDKManager.h"
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 API_AVAILABLE(ios(13.0))
 @implementation SceneDelegate
@@ -89,14 +88,6 @@ API_AVAILABLE(ios(13.0))
 - (void)sceneDidBecomeActive:(UIScene *)scene {
     // Called when the scene has moved from an inactive state to an active state.
     // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    if (@available(iOS 14, *)) {
-        //申请ATT权限 - 注意！若使用含欧盟地区初始化流程，请在initSDK_EU方法中调用申请ATT权限
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
 }
 
 - (void)sceneWillResignActive:(UIScene *)scene {
