@@ -56,7 +56,14 @@
  */
 - (void)bannerViewDidLoad:(id _Nonnull)bannerView {
     NSLog(@"Banner::bannerViewDidLoad:" );
-    [self trackBannerAdLoaded:bannerView adExtra:nil];
+    
+    if (self.isC2SBiding) {
+        NSString *price = [NSString stringWithFormat:@"%ld", (long)bannerView.meta.getECPM];
+        [CustomAdapterC2SBiddingRequestManager disposeLoadSuccessCall:price customObject:bannerView unitID:self.networkUnitId];
+        self.isC2SBiding = NO;
+    } else {
+        [self trackBannerAdLoaded:bannerView adExtra:nil];
+    }
 }
 
 /**
@@ -77,7 +84,11 @@
  */
 - (void)bannerView:(id _Nonnull)bannerView didFailWithError:(NSError *_Nonnull)error {
     NSLog(@"Banner:bannerView:didFailWithError:" );
-    [self trackBannerAdLoadFailed:error];
+    if (self.isC2SBiding) {
+        [CustomAdapterC2SBiddingRequestManager disposeLoadFailCall:error key:kATSDKFailedToLoadBannerADMsg unitID:self.networkUnitId];
+    } else {
+        [self trackBannerAdLoadFailed:error];
+    }
 }
 
 /**
