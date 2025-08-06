@@ -32,7 +32,7 @@ target 'iOSDemo' do
   pod 'AnyThinkGDTSDKAdapter','6.4.90'
  
   #Admob Interactive-media-ads广告类型,iOS13+
-  pod 'AnyThinkIMASDKAdapter','6.4.87'
+  pod 'AnyThinkIMASDKAdapter','6.4.90'
    
   #第三方数据统计SDK
 #  pod 'AppsFlyerFramework'
@@ -43,5 +43,6 @@ target 'iOSDemo' do
   pod 'Masonry'
   pod 'SDWebImage'
   pod 'MJRefresh'
+  pod 'SVProgressHUD'
  
 end
