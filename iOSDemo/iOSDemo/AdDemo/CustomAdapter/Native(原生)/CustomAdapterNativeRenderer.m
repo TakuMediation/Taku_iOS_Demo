@@ -59,5 +59,68 @@
     return nil;
 }
 
+#pragma mark - 以下若需要才重写 Overwrite if needed
+- (BOOL)isVideoContents {
+    id valueOri = offer.assets[kATAdAssetsCustomObjectKey];
+    QuMengNativeAd * nativeAd = valueOri;
+    return nativeAd.hasVideoContent;
+}
+ 
+- (void)dealloc {
+    id valueOri = offer.assets[kATAdAssetsCustomObjectKey];
+    QuMengNativeAd * nativeAd = valueOri;
+    if (nativeAd) {
+        [nativeAd unregisterAdView];
+    }
+}
+ 
+- (ATNativeAdRenderType)getCurrentNativeAdRenderType {
+    id valueOri = offer.assets[kATAdAssetsCustomObjectKey];
+    QuMengNativeAd * nativeAd = valueOri;
+    if (nativeAd.nativeType == QMNativeAdRenderSelfRender) {
+        return ATNativeAdRenderSelfRender;
+    }
+    return ATNativeAdRenderExpress
+}
+ 
+- (ATNativeAdType)getNativeAdType {
+    
+}
+
+/**
+ * The duration of the video ad playing, unit ms
+ */
+- (CGFloat)videoPlayTime {
+    
+}
+
+/**
+ * Video ad duration, unit ms
+ */
+- (CGFloat)videoDuration {
+    
+}
+
+/**
+ Play mute switch
+ @param flag whether to mute
+ */
+- (void)muteEnable:(BOOL)flag {
+    
+}
+
+/**
+ * The video ad play
+ */
+- (void)videoPlay {
+    
+}
+
+/**
+ * The video ad pause
+ */
+- (void)videoPause {
+    
+}
 
 @end
