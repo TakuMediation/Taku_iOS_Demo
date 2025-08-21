@@ -28,7 +28,6 @@
 		CA2715B12D8C02540079E0A0 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2715B02D8C02540079E0A0 /* BaseNavigationController.m */; };
 		CA2715B72D912A6E0079E0A0 /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2715B62D912A6E0079E0A0 /* BaseTabBarController.m */; };
 		CA3CCEA02D3B9C5200A8BC7F /* LaunchLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */; };
-		CA3F2C9A2E0D278000493F4F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C992E0D278000493F4F /* SceneDelegate.m */; };
 		CA47064C2D5C8471003E7AD6 /* SDKGlobalConfigTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CA47064B2D5C8471003E7AD6 /* SDKGlobalConfigTool.m */; };
 		CA4706512D5C8C32003E7AD6 /* TestModeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4706502D5C8C32003E7AD6 /* TestModeTool.m */; };
 		CA4FCF4B2D3BAE0200B602A3 /* ExpressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4FCF4A2D3BAE0200B602A3 /* ExpressVC.m */; };
@@ -99,8 +98,6 @@
 		CA2715B62D912A6E0079E0A0 /* BaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		CA3CCE9E2D3B9C5200A8BC7F /* LaunchLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchLoadingView.h; sourceTree = "<group>"; };
 		CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchLoadingView.m; sourceTree = "<group>"; };
-		CA3F2C982E0D278000493F4F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		CA3F2C992E0D278000493F4F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		CA47064A2D5C8471003E7AD6 /* SDKGlobalConfigTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKGlobalConfigTool.h; sourceTree = "<group>"; };
 		CA47064B2D5C8471003E7AD6 /* SDKGlobalConfigTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKGlobalConfigTool.m; sourceTree = "<group>"; };
 		CA47064F2D5C8C32003E7AD6 /* TestModeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModeTool.h; sourceTree = "<group>"; };
@@ -298,8 +295,6 @@
 				898A0EB92D2C0CCA00EF5B72 /* Others */,
 				8972AB8B2D2AD7A800CB5A22 /* AppDelegate.h */,
 				8972AB8C2D2AD7A800CB5A22 /* AppDelegate.m */,
-				CA3F2C982E0D278000493F4F /* SceneDelegate.h */,
-				CA3F2C992E0D278000493F4F /* SceneDelegate.m */,
 				8972AB8D2D2AD7A800CB5A22 /* Assets.xcassets */,
 				CAF8B0822D364FF600F3498E /* file */,
 				8972AB8E2D2AD7A800CB5A22 /* Info.plist */,
@@ -873,7 +868,6 @@
 				CA4FCF552D3BBB1900B602A3 /* IMAVC.m in Sources */,
 				CACC65D32D93C95B00958DAE /* AdSDKManager.m in Sources */,
 				CA5AF6192D57601500D48D26 /* FeedTemplateVC.m in Sources */,
-				CA3F2C9A2E0D278000493F4F /* SceneDelegate.m in Sources */,
 				899E18AA2D2D78B3005394C9 /* NormalNavBar.m in Sources */,
 				CA81164E2D8BCA7B00D0A5D7 /* SplashVC.m in Sources */,
 				CACC65D02D93C83F00958DAE /* DataUploadTool.m in Sources */,
