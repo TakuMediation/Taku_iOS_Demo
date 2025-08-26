@@ -1,4 +1,4 @@
-#建议使用github源，pod install前请检查终端代理网络是否通畅，如遇失败可尝试使用pod install --repo-update命令
+#建议使用github源，pod install前请检查终端代理网络是否通畅(可能需要通过代码给终端设置代理，否则终端不会走代理服务，具体请检查您的代理服务流量变化)，如遇失败可尝试使用pod install --repo-update命令
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '13.0'
@@ -17,7 +17,7 @@ target 'iOSDemo' do
   use_frameworks!
   
   #Taku SDK
-  pod 'AnyThinkiOS','6.4.90'
+  pod 'AnyThinkiOS','6.4.91'
 
   #DebugUI,调试时建议接入,上线后去掉
   pod 'AnyThinkDebugUISDK'
@@ -25,15 +25,15 @@ target 'iOSDemo' do
   #为了降低Demo首次pod安装时间，Demo并未完整列举所有Adapter适配器的安装，若您需要使用自己的AppID/AppKey进行测试，请替换您选用的Adapter适配器后，重新执行pod install --repo-update安装
   
   #Demo所用适配器，若想使用更多广告平台，请前往SDK下载中心获取:https://app.takuad.com/m/sdk/download?type=iOS
-  pod 'AnyThinkBaiduSDKAdapter','6.4.90'
+  pod 'AnyThinkBaiduSDKAdapter','6.4.91.1'
   #Baidu--4.80 SDK,podfile文件顶部增加 source 'https://github.com/CocoaPods/Specs.git'
-  pod 'AnyThinkKuaiShouSDKAdapter','6.4.90'
-  pod 'AnyThinkTTSDKAdapter','6.4.90'
-  pod 'AnyThinkGDTSDKAdapter','6.4.90'
+  pod 'AnyThinkKuaiShouSDKAdapter','6.4.91'
+  pod 'AnyThinkTTSDKAdapter','6.4.91.2'
+  pod 'AnyThinkGDTSDKAdapter','6.4.91.1'
  
   #Admob Interactive-media-ads广告类型,iOS13+
-  pod 'AnyThinkIMASDKAdapter','6.4.90'
-   
+  pod 'AnyThinkIMASDKAdapter','6.4.91'
+     
   #第三方数据统计SDK
 #  pod 'AppsFlyerFramework'
 #  pod 'Adjust'
