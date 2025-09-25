@@ -89,12 +89,7 @@
     self.mainImageView = [[UIImageView alloc]init];
     self.mainImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:self.mainImageView];
-    
-    self.logoImageView = [[UIImageView alloc]init];
-    self.logoImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.logoImageView.tag = 110220;
-    [self addSubview:self.logoImageView];
-    
+     
     //关闭按钮图片可用示例的，也可以用自己的引入的
     UIImage *closeImg = [UIImage imageNamed:@"offer_video_close" inBundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"AnyThinkSDK" ofType:@"bundle"]] compatibleWithTraitCollection:nil];
     self.dislikeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -115,7 +110,6 @@
     self.warningLabel.userInteractionEnabled = YES;
     self.iconImageView.userInteractionEnabled = YES;
     self.mainImageView.userInteractionEnabled = YES;
-    self.logoImageView.userInteractionEnabled = YES;
 }
 
 - (void)setupUI {
@@ -132,19 +126,7 @@
         [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:self.nativeAdOffer.nativeAd.imageUrl]];
         ATDemoLog(@"🔥AnyThinkDemo::imageUrl:%@",self.nativeAdOffer.nativeAd.imageUrl);
     }
-    
-    if (self.nativeAdOffer.nativeAd.logoUrl.length) {
-        ATDemoLog(@"🔥----logoUrl:%@",self.nativeAdOffer.nativeAd.logoUrl);
-        [self.logoImageView sd_setImageWithURL:[NSURL URLWithString:self.nativeAdOffer.nativeAd.logoUrl]];
-    } else if (self.nativeAdOffer.nativeAd.logo) {
-        ATDemoLog(@"🔥----logo:%@",self.nativeAdOffer.nativeAd.logo);
-        self.logoImageView.image = self.nativeAdOffer.nativeAd.logo;
-    } else { // All of these are nil, set the default platform logo using networkFirmID.
-        if (self.nativeAdOffer.networkFirmID == ATNetworkFirmIDTypeCSJ) {//CSJ
-            self.logoImageView.image = [UIImage imageNamed:@"tt_ad_logo_new"];
-        }
-    }
-        
+ 
     self.advertiserLabel.text = self.nativeAdOffer.nativeAd.advertiser;
     self.titleLabel.text = self.nativeAdOffer.nativeAd.title;
     self.textLabel.text = self.nativeAdOffer.nativeAd.mainText;
@@ -163,13 +145,7 @@
     self.backgroundColor = randomColor;
     self.titleLabel.backgroundColor = randomColor;
     self.textLabel.backgroundColor = randomColor;
-    
-    [self.logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.equalTo(@25);
-        make.bottom.equalTo(self).equalTo(@-5);
-        make.left.equalTo(self).equalTo(@5);
-    }];
-    
+ 
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(100);
         make.right.equalTo(self).offset(-50);

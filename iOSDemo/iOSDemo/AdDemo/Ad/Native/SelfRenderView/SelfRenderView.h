@@ -36,10 +36,7 @@
 
 /// 主图
 @property(nonatomic, strong) UIImageView *mainImageView;
-
-/// 广告平台logo标识
-@property(nonatomic, strong) UIImageView *logoImageView;
-
+ 
 /// 关闭按钮
 @property(nonatomic, strong) UIButton *dislikeButton;
 

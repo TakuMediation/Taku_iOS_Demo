@@ -83,9 +83,8 @@
     config.sizeToFit = YES;
     //设置仅wifi模式才自动播放，部分广告平台有效
     config.videoPlayType = ATNativeADConfigVideoPlayOnlyWiFiAutoPlayType;
-
-    //【手动布局方式】精确设置logo大小以及位置，与下方【Masonry方式】选择一种实现
-    config.logoViewFrame = CGRectMake(kScreenW-50-10, SelfRenderViewHeight-50-10, 50, 50);
+    //设置ad logo frame
+//    config.logoViewFrame = CGRectMake(kScreenW-50-10, SelfRenderViewHeight-50-10, 50, 50);
     
     //设置广告平台logo位置偏好(部分广告平台无法进行精确设置，则通过下面代码设置，Demo示例中均演示为右下角的情况)
     //若素材offer中logoUrl或logo有值时，才可以通过SelfRenderView中布局进行设置，没有值请使用本方法中的示例进行精确控制或者偏好位置设置。
@@ -136,7 +135,6 @@
         prepareInfo.ratingLabel = selfRenderView.ratingLabel;
         prepareInfo.iconImageView = selfRenderView.iconImageView;
         prepareInfo.mainImageView = selfRenderView.mainImageView;
-        prepareInfo.logoImageView = selfRenderView.logoImageView;
         prepareInfo.ctaLabel = selfRenderView.ctaLabel;
         prepareInfo.dislikeButton = selfRenderView.dislikeButton;
         prepareInfo.mediaView = selfRenderView.mediaView;
@@ -146,13 +144,13 @@
     //渲染广告
     [offer rendererWithConfiguration:config selfRenderView:selfRenderView nativeADView:nativeADView];
     
-    //【Masonry方式】精确设置logo大小以及位置，与上方【手动布局方式】选择一种实现，请在渲染广告之后调用
-//    if (nativeADView.logoImageView && nativeADView.logoImageView.superview) {
-//        [nativeADView.logoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.right.bottom.mas_equalTo(nativeADView).mas_offset(-10);
-//            make.width.height.mas_equalTo(20);
-//        }];
-//    }
+    //设置logo大小以及位置，请在rendererWithConfiguration之后调用
+    if (nativeADView.logoImageView && nativeADView.logoImageView.superview) {
+        [nativeADView.logoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.mas_equalTo(nativeADView).mas_offset(-10);
+            make.width.height.mas_equalTo(20);
+        }];
+    }
 //    
     //用于测试时打印
 //    [self printNativeAdInfoAfterRendererWithOffer:offer nativeADView:nativeADView];
