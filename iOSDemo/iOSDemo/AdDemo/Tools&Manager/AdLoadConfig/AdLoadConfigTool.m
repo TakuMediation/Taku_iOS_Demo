@@ -11,7 +11,7 @@
 #import <AnyThinkSplash/AnyThinkSplash.h>
 #import <AnyThinkBanner/AnyThinkBanner.h>
 #import <AnyThinkNative/AnyThinkNative.h>
-#import <AnyThinkKuaiShouAdapter/ATKSExtraConfig.h>
+//#import <AnyThinkKuaiShouAdapter/ATKSExtraConfig.h>
 
 @implementation AdLoadConfigTool
 
