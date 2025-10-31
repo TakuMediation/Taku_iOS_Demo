@@ -52,8 +52,8 @@
     //请求模版广告，指定一个大小，广告平台会匹配这个大小返回广告，不一定完全匹配，和广告平台后台勾选的模版类型有关
     [loadConfigDict setValue:[NSValue valueWithCGSize:CGSizeMake(ExpressAdWidth, ExpressAdHeight)] forKey:kATExtraInfoNativeAdSizeKey];
     
-    // 模板广告可选设置，穿山甲，京媒，快手模版广告支持，当容器高度固定导致广告显示异常时，使用自适宜高度请求。
-//    [loadConfigDict setValue:@YES forKey:kATNativeAdSizeToFitKey];
+    // 自适应高度，可选设置，部分广告平台穿山甲，京媒，快手模版广告支持，自适应高度开启后，建议使用后面展示流程中的
+    // [loadConfigDict setValue:@YES forKey:kATNativeAdSizeToFitKey];
     
     [[ATAdManager sharedManager] loadADWithPlacementID:Native_Express_PlacementID extra:loadConfigDict delegate:self];
 }
@@ -97,32 +97,23 @@
     // 创建广告nativeADView
     ATNativeADView *nativeADView = [[ATNativeADView alloc] initWithConfiguration:config currentOffer:offer placementID:Native_Express_PlacementID];
  
-    //调试时打印信息
-    //[self printNativeAdInfoAfterRendererWithOffer:offer nativeADView:nativeADView];
-    
     //渲染广告
     [offer rendererWithConfiguration:config selfRenderView:nil nativeADView:nativeADView];
  
     //引用
     self.adView = nativeADView;
+     
+    //如果开启了自适应高度，建议获取广告平台返回的模版广告宽高进行使用
+//    ATDemoLog(@"🔥--广告平台返回的模板广告宽高：%lf，%lf，请求广告时设置的宽高：%f,%f，如果尺寸差距太大，请检查广告平台后台配置的模版样式，如果使用自适应高度建议优先选用广告平台返回的",offer.nativeAd.nativeExpressAdViewWidth,offer.nativeAd.nativeExpressAdViewHeight,ExpressAdWidth,ExpressAdHeight);
     
-    //展示广告
+    BOOL isVideoContents = [nativeADView isVideoContents];
+    ATDemoLog(@"🔥--是否为原生视频广告：%d",isVideoContents);
+    
+    //展示广告，实际可根据您的情况把nativeADView添加至父视图中展示
     AdDisplayVC *showVc = [[AdDisplayVC alloc] initWithAdView:nativeADView offer:offer adViewSize:CGSizeMake(ExpressAdWidth, ExpressAdHeight)];
     [self.navigationController pushViewController:showVc animated:YES];
 }
  
-- (void)printNativeAdInfoAfterRendererWithOffer:(ATNativeAdOffer *)offer nativeADView:(ATNativeADView *)nativeADView {
-    ATNativeAdRenderType nativeAdRenderType = [nativeADView getCurrentNativeAdRenderType];
-    if (nativeAdRenderType == ATNativeAdRenderExpress) {
-        ATDemoLog(@"✅✅✅--模板广告");
-        ATDemoLog(@"🔥--模板广告宽高：%lf，%lf，请求广告时设置的宽高：%f,%f，如果尺寸差距太大，请检查后台配置的模版",offer.nativeAd.nativeExpressAdViewWidth,offer.nativeAd.nativeExpressAdViewHeight,ExpressAdWidth,ExpressAdHeight);
-    } else {
-        ATDemoLog(@"⚠️⚠️⚠️--这是自渲染广告了");
-    }
-    BOOL isVideoContents = [nativeADView isVideoContents];
-    ATDemoLog(@"🔥--是否为原生视频广告：%d",isVideoContents);
-}
-
 #pragma mark - 移除广告
 - (void)removeAd {
     if (self.adView && self.adView.superview) {
