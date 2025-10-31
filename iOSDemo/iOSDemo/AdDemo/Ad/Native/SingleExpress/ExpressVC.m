@@ -52,7 +52,7 @@
     //请求模版广告，指定一个大小，广告平台会匹配这个大小返回广告，不一定完全匹配，和广告平台后台勾选的模版类型有关
     [loadConfigDict setValue:[NSValue valueWithCGSize:CGSizeMake(ExpressAdWidth, ExpressAdHeight)] forKey:kATExtraInfoNativeAdSizeKey];
     
-    // 自适应高度，可选设置，部分广告平台穿山甲，京媒，快手模版广告支持，自适应高度开启后，建议使用后面展示流程中的
+    // 自适应高度，可选设置，部分广告平台穿山甲，京媒，快手模版广告支持，自适应高度开启后，建议使用后面展示流程中的广告平台返回的宽高(nativeExpressAdViewHeight)
     // [loadConfigDict setValue:@YES forKey:kATNativeAdSizeToFitKey];
     
     [[ATAdManager sharedManager] loadADWithPlacementID:Native_Express_PlacementID extra:loadConfigDict delegate:self];
