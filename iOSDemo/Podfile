@@ -30,10 +30,10 @@ target 'iOSDemo' do
   pod 'AnyThinkKuaiShouSDKAdapter','6.4.93'
   pod 'AnyThinkTTSDKAdapter','6.4.93'
   pod 'AnyThinkAdmobSDKAdapter','6.4.93.1'
-  pod 'AnyThinkGDTSDKAdapter','6.4.93'
- 
+  pod 'AnyThinkGDTSDKAdapter','6.4.93' 
+
   #Admob Interactive-media-ads广告类型,iOS13+
-  pod 'AnyThinkIMASDKAdapter','6.4.92'
+  pod 'AnyThinkIMASDKAdapter','6.4.93'
      
   #第三方数据统计SDK
 #  pod 'AppsFlyerFramework'
