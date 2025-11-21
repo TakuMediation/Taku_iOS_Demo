@@ -199,6 +199,10 @@
     //场景统计功能，可选接入
     [[ATAdManager sharedManager] entryNativeScenarioWithPlacementID:Feed_Native_SelfRender_PlacementID scene:Feed_Native_SelfRender_SceneID];
     
+    if (![[ATAdManager sharedManager] nativeAdReadyForPlacementID:Feed_Native_SelfRender_PlacementID]) {
+        return nil;
+    }
+    
     ATNativeAdOffer *offer = [[ATAdManager sharedManager] getNativeAdOfferWithPlacementID:Feed_Native_SelfRender_PlacementID];
     // load next
     [self loadNativeAd];
