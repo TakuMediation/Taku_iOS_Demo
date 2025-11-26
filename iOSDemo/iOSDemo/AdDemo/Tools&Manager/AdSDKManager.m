@@ -18,8 +18,6 @@ static AdSDKManager *sharedManager = nil;
 
 /// 加载页面，使用自己的加载图
 @property (strong, nonatomic) LaunchLoadingView * launchLoadingView;
-/// 保存开屏广告回调block
-@property (strong, nonatomic) NSMutableDictionary<NSString *, AdManagerSplashAdLoadBlock> *splashAdCallbacks;
 
 @end
 
@@ -29,7 +27,6 @@ static AdSDKManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[AdSDKManager alloc] init];
-        sharedManager.splashAdCallbacks = [NSMutableDictionary dictionary];
     });
     return sharedManager;
 }
@@ -94,23 +91,25 @@ static AdSDKManager *sharedManager = nil;
 }
  
 #pragma mark - 开屏广告相关
+
+- (void)startSplashAd {
+    //开屏广告展示启动图
+    [self addLaunchLoadingView];
+    
+    [self loadSplashWithPlacementID:FirstAppOpen_PlacementID];
+}
+
 - (void)addLaunchLoadingView {
     //添加启动页
     //添加加载页面，当广告显示完毕后需要在代理中移除
     self.launchLoadingView = [LaunchLoadingView new];
     [self.launchLoadingView show];
+    //启动demo 示例用计时器
+    [self.launchLoadingView startTimer];
 }
 
 /// 加载开屏广告
-- (void)loadSplashAdWithPlacementID:(NSString *)placementID result:(AdManagerSplashAdLoadBlock)block {
-    
-    [self.launchLoadingView startTimer];
-    
-    // 根据placementID保存回调block
-    if (placementID && block) {
-        self.splashAdCallbacks[placementID] = block;
-    }
-     
+- (void)loadSplashWithPlacementID:(NSString *)placementID {
     NSMutableDictionary *loadConfigDict = [NSMutableDictionary dictionary];
     
     //开屏超时时间
@@ -153,17 +152,14 @@ static AdSDKManager *sharedManager = nil;
     [[ATAdManager sharedManager] showSplashWithPlacementID:placementID config:config window:[UIApplication sharedApplication].keyWindow inViewController:[UIApplication sharedApplication].keyWindow.rootViewController extra:configDict delegate:self];
 }
 
-#pragma mark - 开屏广告加载回调判断
-- (void)splashCallBackWithPlacementID:(NSString *)placementID result:(BOOL)result {
-    
-    if (result == NO) {
+#pragma mark - Private Methods
+
+/// 开屏广告加载回调判断
+- (void)showSplashOrEnterHomePageWithPlacementID:(NSString *)placementID loadResult:(BOOL)loadResult {
+    if (loadResult) {
+        [self showSplashWithPlacementID:placementID];
+    } else {
         [self.launchLoadingView dismiss];
-    }
-    
-    AdManagerSplashAdLoadBlock block = self.splashAdCallbacks[placementID];
-    if (block) {
-        block(result);
-        [self.splashAdCallbacks removeObjectForKey:placementID];
     }
 }
 
@@ -202,11 +198,11 @@ static AdSDKManager *sharedManager = nil;
 ///   - error: 错误信息
 - (void)didFailToLoadADWithPlacementID:(NSString *)placementID error:(NSError *)error {
     //处理开屏回调
-    [self splashCallBackWithPlacementID:placementID result:NO];
+    [self showSplashOrEnterHomePageWithPlacementID:placementID loadResult:NO];
 }
 
 - (void)didFinishLoadingADWithPlacementID:(NSString *)placementID { 
-    [self splashCallBackWithPlacementID:placementID result:YES];
+    // All Ads load finished, please use didFinishLoadingSplashADWithPlacementID:isTimeout first
 }
 
 #pragma mark - 开屏广告事件
@@ -216,14 +212,14 @@ static AdSDKManager *sharedManager = nil;
 ///   - isTimeout: 是否超时
 - (void)didFinishLoadingSplashADWithPlacementID:(NSString *)placementID isTimeout:(BOOL)isTimeout {
     //处理开屏回调
-    [self splashCallBackWithPlacementID:placementID result:!isTimeout];
+    [self showSplashOrEnterHomePageWithPlacementID:placementID loadResult:!isTimeout];
 }
 
 /// 开屏广告超时
 /// - Parameter placementID: 广告位ID
 - (void)didTimeoutLoadingSplashADWithPlacementID:(NSString *)placementID {
     //处理开屏回调
-    [self splashCallBackWithPlacementID:placementID result:NO];
+    [self showSplashOrEnterHomePageWithPlacementID:placementID loadResult:NO];
 }
 
 /// 开屏广告已关闭
@@ -232,7 +228,7 @@ static AdSDKManager *sharedManager = nil;
 ///   - extra: 额外信息
 - (void)splashDidCloseForPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {
     //处理开屏回调
-    [self splashCallBackWithPlacementID:placementID result:NO];
+    [self showSplashOrEnterHomePageWithPlacementID:placementID loadResult:NO];
 }
 
 /// 开屏广告展示失败
@@ -242,7 +238,7 @@ static AdSDKManager *sharedManager = nil;
 ///   - extra: 额外信息
 - (void)splashDidShowFailedForPlacementID:(NSString*)placementID error:(NSError *)error extra:(NSDictionary *)extra {
     //处理开屏回调
-    [self splashCallBackWithPlacementID:placementID result:NO];
+    [self showSplashOrEnterHomePageWithPlacementID:placementID loadResult:NO];
 }
  
 /// 开屏广告用户已点击
@@ -250,7 +246,7 @@ static AdSDKManager *sharedManager = nil;
 ///   - placementID: 广告位ID
 ///   - extra: 额外信息
 - (void)splashDidClickForPlacementID:(nonnull NSString *)placementID extra:(nonnull NSDictionary *)extra {
-
+    
 }
  
 /// 开屏广告已曝光
@@ -258,7 +254,7 @@ static AdSDKManager *sharedManager = nil;
 ///   - placementID: 广告位ID
 ///   - extra: 额外信息
 - (void)splashDidShowForPlacementID:(nonnull NSString *)placementID extra:(nonnull NSDictionary *)extra {
- 
+    [self.launchLoadingView dismiss];
 }
 
 

@@ -12,8 +12,6 @@
 
 //初始化完成回调
 typedef void (^AdManagerInitFinishBlock)(void);
-//开屏加载回调
-typedef void (^AdManagerSplashAdLoadBlock)(BOOL isSuccess);
 
 //在后台的应用ID
 #define kTakuAppID  @"a67f4ab312d2be"
@@ -39,14 +37,16 @@ typedef void (^AdManagerSplashAdLoadBlock)(BOOL isSuccess);
 
 #pragma mark - 开屏广告相关
 
+/// 启动开屏广告
+- (void)startSplashAd;
+
 /// 添加启动页,初始化SDK之前添加，用于冷启动开屏
 - (void)addLaunchLoadingView;
 
 /// 加载开屏广告
 /// - Parameters:
 ///   - placementID: 广告位ID
-///   - block: 结果回调
-- (void)loadSplashAdWithPlacementID:(NSString *)placementID result:(AdManagerSplashAdLoadBlock)block;
+- (void)loadSplashWithPlacementID:(NSString *)placementID;
 
 /// 展示开屏广告
 /// - Parameter placementID: 广告位ID
@@ -54,5 +54,3 @@ typedef void (^AdManagerSplashAdLoadBlock)(BOOL isSuccess);
  
 
 @end
-
-
