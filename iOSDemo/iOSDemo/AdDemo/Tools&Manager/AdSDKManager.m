@@ -32,10 +32,11 @@ static AdSDKManager *sharedManager = nil;
 }
 
 #pragma mark - public func
-/// GDPR/UMP流程初始化
+/// GDPR/UMP flow
 - (void)initSDK_EU:(AdManagerInitFinishBlock)block {
     [[ATAPI sharedInstance] showGDPRConsentDialogInViewController:[UIApplication sharedApplication].keyWindow.rootViewController dismissalCallback:^{
-        // 这里示例在用户同意，或者数据同意未知情况下的非首次启动申请ATT权限，您可以根据应用实际情况进行调整。
+        // Example of requesting ATT permission on non-first launch when user consents or data consent is unknown. Adjust according to your app's actual situation.
+
         if (([ATAPI sharedInstance].dataConsentSet == ATDataConsentSetUnknown && ([[NSUserDefaults standardUserDefaults] boolForKey:@"GDPR_First_Flag"] == YES))
             
             || [ATAPI sharedInstance].dataConsentSet == ATDataConsentSetPersonalized) {
@@ -46,6 +47,17 @@ static AdSDKManager *sharedManager = nil;
                 }];
             }
         }
+        
+        //v6.4.93 and below [ATAPI sharedInstance].dataConsentSet cant get result at App first launch.
+        // if you want to get UMP consent result , please follow this example:
+//        NSString *purposeConsents = [[NSUserDefaults standardUserDefaults] stringForKey:@"IABTCF_PurposeConsents"];
+//        NSLog(@"purposeConsents:%@", purposeConsents);
+//        if (![purposeConsents containsString:@"1"]) {
+//           //not allow
+//        } else {
+//           //allow
+//        }
+        
         
         [self initSDK];
         if (block) {
