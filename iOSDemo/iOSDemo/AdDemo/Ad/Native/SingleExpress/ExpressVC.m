@@ -104,7 +104,7 @@
     self.adView = nativeADView;
      
     //如果开启了自适应高度，建议获取广告平台返回的模版广告宽高进行使用
-//    ATDemoLog(@"🔥--广告平台返回的模板广告宽高：%lf，%lf，请求广告时设置的宽高：%f,%f，如果尺寸差距太大，请检查广告平台后台配置的模版样式，如果使用自适应高度建议优先选用广告平台返回的",offer.nativeAd.nativeExpressAdViewWidth,offer.nativeAd.nativeExpressAdViewHeight,ExpressAdWidth,ExpressAdHeight);
+//    ATDemoLog(@"🔥--广告平台返回的模板广告宽高：%lf，%lf，请求广告时设置的宽高：%f,%f，如果尺寸差距太大，请检查广告平台后台配置的模版样式，建议优先选用广告平台返回的",offer.nativeAd.nativeExpressAdViewWidth,offer.nativeAd.nativeExpressAdViewHeight,ExpressAdWidth,ExpressAdHeight);
     
     BOOL isVideoContents = [nativeADView isVideoContents];
     ATDemoLog(@"🔥--是否为原生视频广告：%d",isVideoContents);
