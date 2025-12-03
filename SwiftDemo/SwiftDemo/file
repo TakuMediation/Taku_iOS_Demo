@@ -1,0 +1,190 @@
+{
+    "Interstitial": {
+        "zh-Hans": "插屏广告",
+        "en": "Interstitial",
+    },
+    "Rewarded": {
+        "zh-Hans": "激励广告",
+        "en": "Rewarded",
+    },
+    "Splash": {
+        "zh-Hans": "开屏广告",
+        "en": "Splash",
+    },
+    "Banner": {
+        "zh-Hans": "横幅广告",
+        "en": "Banner",
+    },
+    "Native": {
+        "zh-Hans": "原生广告",
+        "en": "Native",
+    },
+    "Media Video": {
+        "zh-Hans": "插播广告",
+        "en": "Media Video"
+    },
+    "Include Interstitial and FullScreen. Appears at natural breaks or transition points.": {
+        "zh-Hans": "包含插屏和全屏广告。出现在自然的中断或过渡点。",
+        "en": "Include Interstitial and FullScreen. Appears at natural breaks or transition points."
+    },
+    "Users can engage with a video ad in exchange for in-app rewards.": {
+        "zh-Hans": "用户可通过观看视频广告来换取应用内奖励。",
+        "en": "Users can engage with a video ad in exchange for in-app rewards."
+    },
+    "Displayed immediately after the application is launched.": {
+        "zh-Hans": "应用冷、热启动后立即显示。",
+        "en": "Displayed immediately after the application is launched."
+    },
+    "Flexible formats which could appear at the top, middle or bottom of your app.": {
+        "zh-Hans": "灵活的格式，可以出现在应用的顶部、中部或底部。",
+        "en": "Flexible formats which could appear at the top, middle or bottom of your app."
+    },
+    "Most compatible with your native app code for video ads.": {
+        "zh-Hans": "与您的原生应用代码兼容性最强的视频广告。",
+        "en": "Most compatible with your native app code for video ads."
+    },
+    "You control the playback of content videos, while the SDK handles the ad playback.": {
+        "zh-Hans": "由您控制内容视频播放，而SDK负责处理广告播放。",
+        "en": "You control the playback of content videos, while the SDK handles the ad playback."
+    },
+    "Verify the SDK integration, test the connected ad platforms, but cannot test your App's own advertising logic.": {
+        "zh-Hans": "验证SDK的接入情况、测试已接入广告平台，但不能测试您App自身的广告逻辑。",
+        "en": "Verify the SDK integration, test the connected ad platforms, but cannot test your App's own advertising logic."
+    },
+    "Demonstrate the simplest ad loading and displaying functionality": {
+        "zh-Hans": "演示最简单的加载、展示广告功能",
+        "en": "Demonstrate the simplest ad loading and displaying functionality"
+    },
+    "Basic Functionality Demonstration": {
+        "zh-Hans": "基础功能演示",
+        "en": "Basic Functionality Demonstration"
+    },
+    "Display in a new UIWindow": {
+        "zh-Hans": "在新UIWindow中展示",
+        "en": "Display in a new UIWindow"
+    },
+    "Avoid conflicts between ads and pop-ups, need to manage keywindow yourself.": {
+        "zh-Hans": "避免广告与弹窗的冲突，需要自行管理keyWindow",
+        "en": "Avoid conflicts between ads and pop-ups, need to manage keywindow yourself."
+    },
+    "General Scenario Demonstration": {
+        "zh-Hans": "推荐场景演示",
+        "en": "General Scenario Demonstration"
+    },
+    "Display ads in the most common splash screen scenarios for developers, which is our recommended": {
+        "zh-Hans": "在开发者最常见的开屏场景中展示广告，这是我们推荐的集成方式",
+        "en": "Display ads in the most common splash screen scenarios for developers, which is our recommended"
+    },
+    "Load Ad": {
+        "zh-Hans": "加载广告",
+        "en": "Load Ad"
+    },
+    "Show Ad": {
+        "zh-Hans": "展示广告",
+        "en": "Show Ad"
+    },
+    "Hidden Ad": {
+        "zh-Hans": "隐藏广告",
+        "en": "Hidden Ad"
+    },
+    "Reshow Ad": {
+        "zh-Hans": "重新展示",
+        "en": "Reshow Ad"
+    },
+    "Remove Ad": {
+        "zh-Hans": "移除广告",
+        "en": "Remove Ad"
+    },
+    "Clear Log": {
+        "zh-Hans": "清除日志",
+        "en": "Clear Log"
+    },
+    "Self Render Ad": {
+        "zh-Hans": "自渲染广告",
+        "en": "Self Render Ad"
+    },
+    "Express Ad": {
+        "zh-Hans": "模板广告",
+        "en": "Express Ad"
+    },
+    "Demonstrate basic single self-render ad": {
+        "zh-Hans": "演示基础的单个自渲染广告",
+        "en": "Demonstrate basic single self-render ad"
+    },
+    "Demonstrate basic single template ad": {
+        "zh-Hans": "演示基础的单个模板广告",
+        "en": "Demonstrate basic single template ad"
+    },
+    "Feed Ads (Self Render)": {
+        "zh-Hans": "信息流广告(自渲染)",
+        "en": "Feed Ads (Self Render)"
+    },
+    "Feed Ads (Template Render)": {
+        "zh-Hans": "信息流广告(模板渲染)",
+        "en": "Feed Ads (Template Render)"
+    },
+    "Draw Full-Screen Ad (Self Render)": {
+        "zh-Hans": "Draw全屏广告(自渲染)",
+        "en": "Draw Full-Screen Ad (Self Render)"
+    },
+    "Load ad clicked": {
+        "zh-Hans": "点击了加载广告",
+        "en": "Load ad clicked"
+    },
+    "Display custom ads in scrollable list cells": {
+        "zh-Hans": "在滚动列表单元中展示自定义的广告",
+        "en": "Display custom ads in scrollable list cells"
+    },
+    "Display template-style advertisements in scrolling list units.": {
+        "zh-Hans": "在滚动列表单元中展示模版广告",
+        "en": "Display template-style advertisements in scrolling list units."
+    },
+    "A full-screen style ad, in scrollable list": {
+        "zh-Hans": "可滚动的全屏样式的广告",
+        "en": "A full-screen style ad, in scrollable list"
+    },
+    "Are you sure to clear all logs?": {
+        "zh-Hans": "是否要清空日志",
+        "en": "Are you sure to clear all logs?"
+    },
+    "No": {
+        "zh-Hans": "否",
+        "en": "No"
+    },
+    "Yes": {
+        "zh-Hans": "是",
+        "en": "Yes"
+    },
+    "Current": {
+        "zh-Hans": "当前",
+        "en": "Current"
+    },
+    "timeout setting": {
+        "zh-Hans": "总超时时间",
+        "en": "timeout setting"
+    },
+    "Tips": {
+        "zh-Hans": "温馨提示",
+        "en": "Tips"
+    },
+    "DebugUI": {
+        "zh-Hans": "DebugUI",
+        "en": "DebugUI"
+    },
+    "Re-show": {
+        "zh-Hans": "重新展示",
+        "en": "Re-show"
+    },
+    "Hide Ad": {
+        "zh-Hans": "隐藏广告",
+        "en": "Hide Ad"
+    },
+    "Self Render Feed Ad": {
+        "zh-Hans": "信息流广告(自渲染)",
+        "en": "Feed Ads (Self Render)"
+    },
+    "Demonstrate self-render feed ad list": {
+        "zh-Hans": "演示自渲染信息流广告列表",
+        "en": "Demonstrate self-render feed ad list"
+    }
+}
