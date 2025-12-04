@@ -98,7 +98,12 @@ static AdSDKManager *sharedManager = nil;
 //    [TestModeTool showDebugUI:]
     
     //初始化SDK
-    [[ATAPI sharedInstance] startWithAppID:kTakuAppID appKey:kTakuAppKey error:nil];
+    NSError * initError = nil;
+    [[ATAPI sharedInstance] startWithAppID:kTakuAppID appKey:kTakuAppKey error:&initError];
+    if (initError) {
+        //初始化失败
+        NSLog(@"init failed, may be AppID or AppKey wrong");
+    }
 }
  
 #pragma mark - 开屏广告相关
