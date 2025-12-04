@@ -19,10 +19,10 @@ typealias AdManagerInitFinishBlock = () -> Void
 typealias AdManagerSplashAdLoadBlock = (Bool) -> Void
  
 /// Application ID in the backend
-let kAppID = "a67f4ab312d2be"
+let kAppID = ""
 
 /// Application-level AppKey or account-level AppKey in the backend
-let kAppKey = "7eae0567827cfe2b22874061763f30c9"
+let kAppKey = ""
 
 /// Cold start splash timeout duration
 let FirstAppOpen_Timeout = 8
@@ -76,7 +76,11 @@ class AdSDKManager: NSObject {
         // TestModeTool.showDebugUI()
         
         // Initialize SDK
-        try? ATAPI.sharedInstance().start(withAppID: kAppID, appKey: kAppKey)
+        do {
+            try ATAPI.sharedInstance().start(withAppID: kAppID, appKey: kAppKey)
+        } catch {
+            print("AdSDK init error: \(error)")
+        }
     }
     
     // MARK: - Splash Ad Related
