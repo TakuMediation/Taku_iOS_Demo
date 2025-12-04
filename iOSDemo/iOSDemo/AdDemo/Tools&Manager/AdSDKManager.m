@@ -102,7 +102,7 @@ static AdSDKManager *sharedManager = nil;
     [[ATAPI sharedInstance] startWithAppID:kTakuAppID appKey:kTakuAppKey error:&initError];
     if (initError) {
         //初始化失败
-        NSLog(@"init failed, may be AppID or AppKey wrong");
+        NSLog(@"init failed : %@",initError);
     }
 }
  

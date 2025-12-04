@@ -19,10 +19,10 @@ typealias AdManagerInitFinishBlock = () -> Void
 typealias AdManagerSplashAdLoadBlock = (Bool) -> Void
  
 /// Application ID in the backend
-let kAppID = ""
+let kAppID = "a67f4ab312d2be"
 
 /// Application-level AppKey or account-level AppKey in the backend
-let kAppKey = ""
+let kAppKey = "7eae0567827cfe2b22874061763f30c9"
 
 /// Cold start splash timeout duration
 let FirstAppOpen_Timeout = 8
