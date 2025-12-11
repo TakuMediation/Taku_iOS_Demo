@@ -50,7 +50,7 @@
     //必须开启日志
     [ATAPI setLogEnabled:YES];
     //测试完毕请移除⚠️
-    [ATSDKGlobalSetting sharedManager].headerBiddingTestModeDeviceID = currentIDFAStr;
+    [[ATSDKGlobalSetting sharedManager] setHeaderBiddingTestModeDeviceID:currentIDFAStr];
 }
 
 @end
