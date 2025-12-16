@@ -141,6 +141,10 @@
 
 }
 
+- (void)bannerUserClickCloseButton:(id)bannerView {
+    [self trackBannerAdClosed];
+}
+
 //- (BOOL)sendImpressionTrackingIfNeed {
 //    return YES;
 //}
