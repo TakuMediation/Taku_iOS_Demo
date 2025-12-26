@@ -75,7 +75,7 @@
     ATNativeADConfiguration *config = [[ATNativeADConfiguration alloc] init];
     // 给原生广告进行预布局
     config.ADFrame = CGRectMake(0, 0, SelfRenderViewWidth, SelfRenderViewHeight);
-    // 给视频播放器进行预布局，建议在后面添加到自定义视图后，再次进行一次布局
+    // 对于部分广告平台，给媒体视图进行占位布局，在后面添加到自定义视图后，请再次进行一次布局
     config.mediaViewFrame = CGRectMake(0, 0, SelfRenderViewMediaViewWidth, SelfRenderViewMediaViewHeight);
     config.delegate = self;
     config.rootViewController = self;

@@ -144,7 +144,7 @@ class FeedSelfRenderVC: BaseNormalBarVC {
         let config = ATNativeADConfiguration()
         // Pre-layout for native ad
         config.adFrame = CGRect(x: 0, y: 0, width: SelfRenderViewWidth, height: SelfRenderViewHeight)
-        // Pre-layout for video player
+        // Pre-layout for video player, please re-layout after getMediaView()
         config.mediaViewFrame = CGRect(x: 0, y: 0, width: SelfRenderViewMediaViewWidth, height: SelfRenderViewMediaViewHeight)
         config.delegate = self
         config.rootViewController = self
