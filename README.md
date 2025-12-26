@@ -9,8 +9,8 @@ Demo使用说明：
 
 3.具体广告类型示例代码.m文件中，修改广告位ID
 
-4.v6.4.93及其以前版本迁移,请查看迁移指南：https://help.takuad.com/docs/1EeNDDyJ
-升级到iOS v6.5.34 后，如果有自定义广告平台，必须按照以下文档完成新版本的适配，否则将无法请求自定义广告平台的广告。
+4.v6.4.93及其以前版本迁移至v6.5.xx,请查看迁移指南：https://help.takuad.com/docs/1EeNDDyJ
+升级到iOS v6.5.xx 后，如果有自定义广告平台，必须按照以下文档完成新版本的适配，否则将无法请求自定义广告平台的广告。
 [自定义广告平台接入说明](https://help.takuad.com/docs/A8t5SJDI)
 [自定义基础适配器](https://help.takuad.com/docs/CQuN9eZp)
 [自定义横幅广告适配器](https://help.takuad.com/docs/D4WU29qX)
@@ -40,8 +40,8 @@ Replace the AppKey and AppId with your own credentials.
 
 Modify the ad placement IDs in the sample ad implementation files.
 
-4.For migration from v6.4.93 and earlier versions, please refer to the migration guide: https://help.takuad.com/docs/1EeNDDyJ  
-After upgrading to iOS v6.5.34, if you have a custom ad platform, you must complete the adaptation for the new version according to the following documents. Otherwise, ads from the custom ad platform will not be available.  
+4.For migration from v6.4.93 and earlier versions to v6.5.xx, please refer to the migration guide: https://help.takuad.com/docs/1EeNDDyJ  
+After upgrading to iOS v6.5.xx, if you have a custom ad platform, you must complete the adaptation for the new version according to the following documents. Otherwise, ads from the custom ad platform will not be available.  
 [Custom Ad Platform Integration Guide](https://help.takuad.com/docs/A8t5SJDI)  
 [Custom Base Adapter](https://help.takuad.com/docs/CQuN9eZp)  
 [Custom Banner Ad Adapter](https://help.takuad.com/docs/D4WU29qX)  
