@@ -1,0 +1,45 @@
+#建议使用github源，pod install前请检查终端代理网络是否通畅(可能需要通过代码给终端设置代理，否则终端不会走代理服务，具体请检查您的代理服务流量变化)，如遇失败可尝试使用pod install --repo-update命令
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '13.0'
+
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+         end
+    end
+  end
+end
+
+target 'iOSDemo' do
+  use_frameworks!
+  
+    #  #Taku SDK
+    pod 'AnyThinkiOS','6.5.34'
+    #Anythink Kuying Adx SDK(necessary)
+    pod 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.41.0'
+    
+    #Baidu--4.80 SDK,podfile文件顶部增加 source 'https://github.com/CocoaPods/Specs.git'
+    pod 'AnyThinkMediationBaiduAdapter','10.022.0'
+
+    pod 'AnyThinkMediationMSAdapter','2.7.10.0.0'
+    pod 'AnyThinkMediationKuaiShouAdapter','4.9.20.3.1'
+    pod 'AnyThinkMediationAdmobAdapter','12.12.0.0'
+    pod 'AnyThinkMediationGDTAdapter','4.15.60.7'
+ 
+    pod 'AnyThinkDebugUISDK'
+    
+  #第三方数据统计SDK
+#  pod 'AppsFlyerFramework'
+#  pod 'Adjust'
+#  pod 'FirebaseAnalytics'
+ 
+  # Demo UI依赖的第三库
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'MJRefresh'
+  pod 'SVProgressHUD'
+   
+end

@@ -7,4 +7,8 @@ SwiftDemo/Podfile.lock
 SwiftDemo/Pods
 SwiftDemo/iOSDemo.xcworkspace
 SwiftDemo/build
+OCDemo_6.5.34/Podfile.lock
+OCDemo_6.5.34/Pods
+OCDemo_6.5.34/iOSDemo.xcworkspace
+OCDemo_6.5.34/build
 *.sh

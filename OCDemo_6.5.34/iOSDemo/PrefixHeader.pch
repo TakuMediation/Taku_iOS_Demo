@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  iOSDemo
+//
+//  Created by ltz on 2025/1/5.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "SDKMacros.h"
+#import "Masonry.h"
+#import "HomeViewController.h"
+#import "LocalizationManager.h"
+#import "BaseVC.h"
+#import "Tools.h"
+#import "BaseNormalBarVC.h"
+ 
+#endif /* PrefixHeader_pch */
