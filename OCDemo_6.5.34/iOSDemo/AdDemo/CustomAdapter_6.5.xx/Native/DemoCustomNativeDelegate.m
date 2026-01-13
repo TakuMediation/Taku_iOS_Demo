@@ -120,6 +120,7 @@
  *  新原生广告加载广告数据成功回调，返回为广告物料的数组
  */
 - (void)msNativeFeedAdLoaded:(MSNativeFeedAd *)nativeFeedAd feedAds:(NSArray <MSNativeFeedAdModel *> *)feedAds {
+    [ATAdLogger logMessage:[NSString stringWithFormat:@"ATMSNativeCustomEvent::msNativeFeedAdLoaded:"] type:ATLogTypeExternal];
     self.nativeFeedAd = nativeFeedAd;
     [self nativeRenderingFeedAds:feedAds];
 }
@@ -128,6 +129,7 @@
  *  新原生广告加载广告数据失败回调
  */
 - (void)msNativeFeedAdError:(MSNativeFeedAd *)nativeFeedAd withError:(NSError *)error {
+    [ATAdLogger logMessage:[NSString stringWithFormat:@"ATMSNativeCustomEvent::msNativeFeedAdError:withError:%ld-%@-%@-%@",(long)error.code,error.domain,error.description,error.userInfo] type:ATLogTypeExternal];
     [self.adStatusBridge atOnAdLoadFailed:error adExtra:nil];
 }
 
@@ -158,18 +160,31 @@
  *  新原生广告即将展现
  */
 - (void)msNativeFeedAdShow:(MSNativeFeedAdModel *)feedAd {
+    [ATAdLogger logMessage:@"ATMSNativeCustomEvent::msNativeFeedAdShow:" type:ATLogTypeExternal];
+    
+    [self.adStatusBridge atOnAdShow:nil];
 }
  
 /**
  *  新原生广告展现失败
  */
 - (void)msNativeFeedAdShowFailed:(MSNativeFeedAdModel *)feedAd error:(NSError *)error {
+    
+    [ATAdLogger logMessage:[NSString stringWithFormat:@"ATMSNativeCustomEvent::msNativeFeedAdShowFailed:error:%ld-%@-%@-%@",(long)error.code,error.domain,error.description,error.userInfo] type:ATLogTypeExternal];
+    
+    NSMutableDictionary * errorInfo = [NSMutableDictionary dictionary];
+    
+    //Set info if its available
+//    [errorInfo setValue: forKey:];
+    
+    [self.adStatusBridge atOnAdShowFailed:error extra:errorInfo];
 }
 
 /**
  *  广告被点击
  */
 - (void)msNativeFeedAdClick:(MSNativeFeedAdModel *)feedAd {
+    [ATAdLogger logMessage:@"ATMSNativeCustomEvent::msNativeFeedAdClick:" type:ATLogTypeExternal];
     [self.adStatusBridge atOnAdClick:nil];
 }
 
