@@ -17,24 +17,30 @@
 @end
 
 @implementation DemoCustomSplashAdapter
- 
+  
 #pragma mark - load Ad
 - (void)loadADWithArgument:(ATAdMediationArgument *)argument {
      
-    self.splashAd = [[MSSplashAd alloc] init];
-    self.splashAd.delegate = self.splashDelegate;
-
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    if (self.containerView) {
-        size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - self.containerView.frame.size.height);
-    }
-    MSSplashAdConfigParams *adParam = [[MSSplashAdConfigParams alloc]init];
-    adParam.adSize = size;
-    adParam.hideSplashStatusBar = YES;
-    if (self.containerView) {
-        adParam.bottomView = self.containerView;
-    }
-    [self.splashAd loadSplashAdWithPid:argument.serverContentDic[@"slot_id"] adParam:adParam];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.splashAd = [[MSSplashAd alloc] init];
+        self.splashAd.delegate = self.splashDelegate;
+        
+        //Get the bottom logo view
+        UIView *containerView = argument.localInfoDic[kATSplashExtraContainerViewKey];
+        
+        CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        if (containerView) {
+            size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - containerView.frame.size.height);
+        }
+        MSSplashAdConfigParams *adParam = [[MSSplashAdConfigParams alloc]init];
+        adParam.adSize = size;
+        adParam.hideSplashStatusBar = YES;
+        if (containerView) {
+            adParam.bottomView = containerView;
+        }
+        [self.splashAd loadSplashAdWithPid:argument.serverContentDic[@"slot_id"] adParam:adParam];
+    });
 }
  
 // Ad ready
