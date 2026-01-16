@@ -208,6 +208,16 @@
     
     // 热启动预加载（可选）
     // [self loadAd];
+    
+    //可在此获取关闭原因:dismiss_type
+//    typedef NS_OPTIONS(NSInteger, ATAdCloseType) {
+//        ATAdCloseUnknow = 1,            // ad close type unknow
+//        ATAdCloseSkip = 2,              // ad skip to close
+//        ATAdCloseCountdown = 3,         // ad countdown to close
+//        ATAdCloseClickcontent = 4,      // ad clickcontent to close
+//        ATAdCloseShowfail = 99          // ad showfail to close
+//    };
+//    ATAdCloseType closeType = [extra[kATADDelegateExtraDismissTypeKey] integerValue];
 }
 
 /// 开屏广告已点击
