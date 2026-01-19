@@ -28,9 +28,9 @@
     //布局demoUI,无需接入
     [self setupDemoUI];
     
-    // iOS 13以下版本在这里调用PPVC
-    [PPVC showSDKManagementWithAgreementCallback:^{//Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示
-
+    //Demo首次启动展示隐私政策弹窗，可选实际是否需要根据您的产品需求来决定是否显示，不必接入这个方法
+    [PPVC showSDKManagementWithAgreementCallback:^{
+        
         //初始化SDK，必须接入，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
         [[AdSDKManager sharedManager] initSDK];
         
