@@ -19,7 +19,7 @@ target 'iOSDemo' do
     #  #Taku SDK
     pod 'AnyThinkiOS','6.5.34'
     #Anythink Kuying Adx SDK(necessary)
-    pod 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.41.0'
+    pod 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.42.0'
     
     #Baidu--4.80 SDK,podfile文件顶部增加 source 'https://github.com/CocoaPods/Specs.git'
     pod 'AnyThinkMediationBaiduAdapter','10.022.0'
