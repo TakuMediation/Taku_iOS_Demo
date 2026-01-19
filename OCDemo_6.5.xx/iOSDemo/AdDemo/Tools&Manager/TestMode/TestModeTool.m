@@ -12,7 +12,7 @@
 @implementation TestModeTool
 
 /// 在指定vc上展示Debug UI，建议直接使用系统的UIViewController，传入继承或者自定义的vc可能导致显示异常
-/// 需要 pod 'AnyThinkDebugUISDK','1.0.3' 测试完毕请移除⚠️
+/// 需要 pod 'AnyThinkDebugUISDK','x.x.x' 测试完毕请移除⚠️
 /// - Parameter vc: 目标vc
 + (void)showDebugUI:(UIViewController *)vc {
     //引入头文件 #import <AnyThinkDebuggerUISDK/ATDebuggerAPI.h>
