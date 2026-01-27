@@ -16,9 +16,6 @@ static AdSDKManager *sharedManager = nil;
 
 @interface AdSDKManager() <ATAdLoadingDelegate, ATSplashDelegate>
 
-/// 加载页面，使用自己的加载图
-@property (strong, nonatomic) LaunchLoadingView * launchLoadingView;
-
 @end
 
 @implementation AdSDKManager
@@ -125,11 +122,8 @@ static AdSDKManager *sharedManager = nil;
 
 - (void)addLaunchLoadingView {
     //添加启动页
-    //添加加载页面，当广告显示完毕后需要在代理中移除
-    self.launchLoadingView = [LaunchLoadingView new];
-    [self.launchLoadingView show];
-    //启动demo 示例用计时器
-    [self.launchLoadingView startTimer];
+    LaunchLoadingView *loadingView = [LaunchLoadingView sharedInstance];
+    [loadingView show];
 }
 
 /// 加载开屏广告
@@ -183,7 +177,7 @@ static AdSDKManager *sharedManager = nil;
     if (loadResult) {
         [self showSplashWithPlacementID:placementID];
     } else {
-        [self.launchLoadingView dismiss];
+        [[LaunchLoadingView sharedInstance] dismiss];
     }
 }
 
@@ -278,7 +272,7 @@ static AdSDKManager *sharedManager = nil;
 ///   - placementID: 广告位ID
 ///   - extra: 额外信息
 - (void)splashDidShowForPlacementID:(nonnull NSString *)placementID extra:(nonnull NSDictionary *)extra {
-    [self.launchLoadingView dismiss];
+    [[LaunchLoadingView sharedInstance] dismiss];
 }
 
 

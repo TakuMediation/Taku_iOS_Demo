@@ -16,10 +16,7 @@
 #import "LaunchLoadingView.h"
 
 @interface SplashVC () <ATSplashDelegate>
-
-/// 加载页面，使用自己的加载图
-@property (strong, nonatomic) LaunchLoadingView * launchLoadingView;
-
+ 
 @end
  
 @implementation SplashVC
@@ -37,8 +34,7 @@
     [super viewDidLoad];
 
     //添加加载页面，当广告显示完毕后需要在代理中移除
-    self.launchLoadingView = [LaunchLoadingView new];
-    [self.launchLoadingView show];
+    [[LaunchLoadingView sharedInstance] show];
      
     //为了加快开屏广告效率，建议在进入当前页面之前发起开屏广告加载请求，例如初始化SDK之后，demo此处为了方便演示，在viewDidLoad进入时请求
     [self loadAd];
@@ -46,7 +42,7 @@
 
 /// 进入首页
 - (void)enterHomeVC {
-    [self.launchLoadingView dismiss];
+    [[LaunchLoadingView sharedInstance] dismiss];
 }
 
 #pragma mark - Load Ad 加载广告
@@ -195,7 +191,7 @@
     [self showLog:[NSString stringWithFormat:@"splashDidShowForPlacementID:%@ ",placementID]];
     
     //展示广告后可以隐藏，避免遮挡
-    [self.launchLoadingView dismiss];
+    [[LaunchLoadingView sharedInstance] dismiss];
 }
 
 /// 开屏广告已关闭
