@@ -291,6 +291,8 @@
 		8972AB982D2AD7A800CB5A22 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				89255F802D2ADF5E00995FDE /* Home */,
+				CAF3EB892DB74D84009BE9F2 /* CustomAdapter */,
 				898A0EBA2D2C0CE700EF5B72 /* AdDemo */,
 				898A0EB92D2C0CCA00EF5B72 /* Others */,
 				8972AB8B2D2AD7A800CB5A22 /* AppDelegate.h */,
@@ -323,9 +325,12 @@
 		898A0EBA2D2C0CE700EF5B72 /* AdDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CAF3EB892DB74D84009BE9F2 /* CustomAdapter */,
-				89255F802D2ADF5E00995FDE /* Home */,
-				CA47064E2D5C8B45003E7AD6 /* Ad */,
+				899E18AE2D2D7E6B005394C9 /* RewardVideo */,
+				898A0EBB2D2C117000EF5B72 /* Interstitial */,
+				89E1FCE72D30A2D3005C19FA /* Splash */,
+				CADE55512D323D8A00E492CC /* Banner */,
+				CADE55502D323D2800E492CC /* Native */,
+				CA4FCF4C2D3BB8A100B602A3 /* MediaVideo(IMA) */,
 				CA4FCF482D3BAC7300B602A3 /* Tools&Manager */,
 			);
 			path = AdDemo;
@@ -374,19 +379,6 @@
 				CA4706502D5C8C32003E7AD6 /* TestModeTool.m */,
 			);
 			path = TestMode;
-			sourceTree = "<group>";
-		};
-		CA47064E2D5C8B45003E7AD6 /* Ad */ = {
-			isa = PBXGroup;
-			children = (
-				899E18AE2D2D7E6B005394C9 /* RewardVideo */,
-				898A0EBB2D2C117000EF5B72 /* Interstitial */,
-				89E1FCE72D30A2D3005C19FA /* Splash */,
-				CADE55512D323D8A00E492CC /* Banner */,
-				CADE55502D323D2800E492CC /* Native */,
-				CA4FCF4C2D3BB8A100B602A3 /* MediaVideo(IMA) */,
-			);
-			path = Ad;
 			sourceTree = "<group>";
 		};
 		CA4CB4472DBA531E00D356EE /* Banner(横幅) */ = {

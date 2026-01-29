@@ -187,7 +187,7 @@
     ATDemoLog(@"splashDidShowForPlacementID:%@",placementID);
     [self showLog:[NSString stringWithFormat:@"splashDidShowForPlacementID:%@ ",placementID]];
     
-    //展示广告后可以隐藏，避免遮挡
+    //展示广告后可以隐藏，避免遮挡部分广告平台的广告，有些广告平台SDK内部展示时的广告视图层级不高
     [[LaunchLoadingView sharedInstance] dismiss];
 }
 
