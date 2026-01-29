@@ -35,9 +35,9 @@ typedef void (^AdManagerInitFinishBlock)(void);
 /// 初始化SDK
 - (void)initSDK;
 
-#pragma mark - 开屏广告相关
+#pragma mark - 冷启动开屏广告相关
 
-/// 启动开屏广告
+/// 执行冷启动开屏广告流程
 - (void)startSplashAd;
  
 @end

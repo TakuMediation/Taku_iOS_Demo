@@ -35,7 +35,7 @@
         //初始化SDK，必须接入，在非欧盟地区发行的应用，需要用此方法初始化SDK接入，欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
         [[AdSDKManager sharedManager] initSDK];
         
-        //冷启动开屏广告流程演示
+        //冷启动开屏广告流程演示，含自有定时器逻辑演示，如果需要使用SDK内置超时计时器，请参考SplashVC.m
         [[AdSDKManager sharedManager] startSplashAd];
         
         //含欧盟地区初始化流程

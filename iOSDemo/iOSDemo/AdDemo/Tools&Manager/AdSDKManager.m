@@ -122,6 +122,8 @@ static AdSDKManager *sharedManager = nil;
 - (void)addLaunchLoadingView {
     //添加启动页
     LaunchLoadingView *loadingView = [LaunchLoadingView sharedInstance];
+    
+    //展示启动页
     [loadingView show];
 }
 
@@ -174,7 +176,14 @@ static AdSDKManager *sharedManager = nil;
 /// 开屏广告加载回调判断
 - (void)showSplashOrEnterHomePageWithPlacementID:(NSString *)placementID loadResult:(BOOL)loadResult {
     if (loadResult) {
+        
+        //自有计时器逻辑，由于自有计时器优先，如果自有计时器时间到了，那么也就不再展示广告了
+        if ([LaunchLoadingView sharedInstance].localTimerTimeout == YES) {
+            return;
+        }
+        
         [self showSplashWithPlacementID:placementID];
+        
     } else {
         [[LaunchLoadingView sharedInstance] dismiss];
     }

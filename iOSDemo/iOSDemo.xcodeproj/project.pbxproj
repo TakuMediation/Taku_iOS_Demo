@@ -239,8 +239,6 @@
 				899E18A92D2D78B3005394C9 /* NormalNavBar.m */,
 				899E18AB2D2D798B005394C9 /* WildClickButton.h */,
 				899E18AC2D2D798B005394C9 /* WildClickButton.m */,
-				CA3CCE9E2D3B9C5200A8BC7F /* LaunchLoadingView.h */,
-				CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -486,6 +484,8 @@
 		CA4FCF482D3BAC7300B602A3 /* Tools&Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CA3CCE9E2D3B9C5200A8BC7F /* LaunchLoadingView.h */,
+				CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */,
 				CACC65D12D93C95B00958DAE /* AdSDKManager.h */,
 				CACC65D22D93C95B00958DAE /* AdSDKManager.m */,
 				CA47064D2D5C8B2A003E7AD6 /* TestMode */,
