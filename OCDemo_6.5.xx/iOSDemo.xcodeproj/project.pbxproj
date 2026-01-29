@@ -240,8 +240,6 @@
 				899E18A92D2D78B3005394C9 /* NormalNavBar.m */,
 				899E18AB2D2D798B005394C9 /* WildClickButton.h */,
 				899E18AC2D2D798B005394C9 /* WildClickButton.m */,
-				CA3CCE9E2D3B9C5200A8BC7F /* LaunchLoadingView.h */,
-				CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -292,6 +290,7 @@
 		8972AB982D2AD7A800CB5A22 /* iOSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CA3003DA2E82B61A00182736 /* CustomAdapter_6.5.xx */,
 				898A0EBA2D2C0CE700EF5B72 /* AdDemo */,
 				898A0EB92D2C0CCA00EF5B72 /* Others */,
 				8972AB8B2D2AD7A800CB5A22 /* AppDelegate.h */,
@@ -325,8 +324,11 @@
 		898A0EBA2D2C0CE700EF5B72 /* AdDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CA3003DA2E82B61A00182736 /* CustomAdapter_6.5.xx */,
-				CA47064E2D5C8B45003E7AD6 /* Ad */,
+				899E18AE2D2D7E6B005394C9 /* RewardVideo */,
+				898A0EBB2D2C117000EF5B72 /* Interstitial */,
+				89E1FCE72D30A2D3005C19FA /* Splash */,
+				CADE55512D323D8A00E492CC /* Banner */,
+				CADE55502D323D2800E492CC /* Native */,
 				CA4FCF482D3BAC7300B602A3 /* Tools&Manager */,
 			);
 			path = AdDemo;
@@ -459,18 +461,6 @@
 			path = TestMode;
 			sourceTree = "<group>";
 		};
-		CA47064E2D5C8B45003E7AD6 /* Ad */ = {
-			isa = PBXGroup;
-			children = (
-				899E18AE2D2D7E6B005394C9 /* RewardVideo */,
-				898A0EBB2D2C117000EF5B72 /* Interstitial */,
-				89E1FCE72D30A2D3005C19FA /* Splash */,
-				CADE55512D323D8A00E492CC /* Banner */,
-				CADE55502D323D2800E492CC /* Native */,
-			);
-			path = Ad;
-			sourceTree = "<group>";
-		};
 		CA4FCF472D3BAC5700B602A3 /* SDKGlobalConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +473,8 @@
 		CA4FCF482D3BAC7300B602A3 /* Tools&Manager */ = {
 			isa = PBXGroup;
 			children = (
+				CA3CCE9E2D3B9C5200A8BC7F /* LaunchLoadingView.h */,
+				CA3CCE9F2D3B9C5200A8BC7F /* LaunchLoadingView.m */,
 				CACC65D12D93C95B00958DAE /* AdSDKManager.h */,
 				CACC65D22D93C95B00958DAE /* AdSDKManager.m */,
 				CA47064D2D5C8B2A003E7AD6 /* TestMode */,
@@ -731,9 +723,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -770,9 +766,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSDemo/Pods-iOSDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

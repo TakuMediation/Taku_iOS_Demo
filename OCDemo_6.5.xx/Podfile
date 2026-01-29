@@ -16,18 +16,17 @@ end
 target 'iOSDemo' do
   use_frameworks!
   
-    #  #Taku SDK
+    #Taku SDK
     pod 'AnyThinkiOS','6.5.34'
     #Anythink Kuying Adx SDK(necessary)
-    pod 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.42.0'
+    pod 'AnyThinkMediationAdxSmartdigimktCNAdapter','6.5.42.1'
     
     #Baidu--4.80 SDK,podfile文件顶部增加 source 'https://github.com/CocoaPods/Specs.git'
     pod 'AnyThinkMediationBaiduAdapter','10.022.0'
-
-    pod 'AnyThinkMediationMSAdapter','2.7.10.0.0'
-    pod 'AnyThinkMediationKuaiShouAdapter','4.9.20.3.1'
-    pod 'AnyThinkMediationAdmobAdapter','12.12.0.0'
-    pod 'AnyThinkMediationGDTAdapter','4.15.60.7'
+    pod 'AnyThinkMediationMSAdapter','2.7.13.0.0'
+    pod 'AnyThinkMediationKuaiShouAdapter','4.12.20.1.0'
+    pod 'AnyThinkMediationAdmobAdapter','12.14.0.0'
+    pod 'AnyThinkMediationGDTAdapter','4.15.70.0'
  
     pod 'AnyThinkDebugUISDK'
     
