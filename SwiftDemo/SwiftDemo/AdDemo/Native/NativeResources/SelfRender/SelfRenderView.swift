@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import SDWebImage
-import AnyThinkNative
+import AnyThinkSDK
 
 // Define random color function
 func randomColor() -> UIColor {

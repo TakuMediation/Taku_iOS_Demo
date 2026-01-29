@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AnyThinkSplash
+import AnyThinkSDK
 
 class SplashVC: BaseNormalBarNoFootVC {
     

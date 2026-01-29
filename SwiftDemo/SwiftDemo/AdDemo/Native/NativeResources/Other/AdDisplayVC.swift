@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import AnyThinkNative
+import AnyThinkSDK
 
 class AdDisplayVC: BaseVC {
     

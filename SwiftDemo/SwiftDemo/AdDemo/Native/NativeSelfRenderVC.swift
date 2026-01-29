@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AnyThinkNative
+import AnyThinkSDK
 
 // MARK: - Constants
 private let SelfRenderViewWidth: CGFloat = kScreenW

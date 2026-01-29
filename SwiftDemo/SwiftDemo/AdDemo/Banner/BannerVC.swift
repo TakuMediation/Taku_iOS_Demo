@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AnyThinkBanner
+import AnyThinkSDK
 import SnapKit
 
 class BannerVC: BaseNormalBarVC {

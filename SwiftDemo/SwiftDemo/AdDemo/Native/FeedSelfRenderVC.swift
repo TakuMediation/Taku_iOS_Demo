@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AnyThinkNative
+import AnyThinkSDK
 import MJRefresh
 import SnapKit
 

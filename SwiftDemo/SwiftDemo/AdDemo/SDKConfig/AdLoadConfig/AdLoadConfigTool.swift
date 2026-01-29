@@ -7,11 +7,7 @@
 
 import Foundation
 import UIKit
-import AnyThinkInterstitial
-import AnyThinkRewardedVideo
-import AnyThinkSplash
-import AnyThinkBanner
-import AnyThinkNative
+import AnyThinkSDK
 
 /// 本类中的功能为某一广告类型加载时的配置，可选接入，仅演示部分广告平台支持的特殊功能
 class AdLoadConfigTool: NSObject {
