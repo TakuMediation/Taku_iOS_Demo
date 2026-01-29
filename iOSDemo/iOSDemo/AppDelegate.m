@@ -41,7 +41,7 @@
         //含欧盟地区初始化流程
 //        //欧盟地区初始化替换为[[AdSDKManager sharedManager] initSDK_EU:];
 //        [[AdSDKManager sharedManager] initSDK_EU:^{
-//             //启动开屏广告
+//             //冷启动开屏广告流程演示，含自有定时器逻辑演示，如果需要使用SDK内置超时计时器，请参考SplashVC.m
 //             [[AdSDKManager sharedManager] startSplashAd];
 //        }];
         
@@ -57,7 +57,6 @@
         if (@available(iOS 14, *)) {
             //申请ATT权限
             [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-                
             }];
         } else {
             // Fallback on earlier versions
