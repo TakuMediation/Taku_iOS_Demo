@@ -11,10 +11,7 @@ import AnyThinkSDK
 class SplashVC: BaseNormalBarNoFootVC {
     
     // MARK: - Properties
-    
-    /// Loading page, using custom loading image
-    private var launchLoadingView: LaunchLoadingView?
-    
+ 
     // MARK: - Constants
     
     /// Placement ID
@@ -27,11 +24,7 @@ class SplashVC: BaseNormalBarNoFootVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Add loading page, needs to be removed in delegate after ad display completes
-        launchLoadingView = LaunchLoadingView()
-        launchLoadingView?.show()
-        
+ 
         // To improve splash ad efficiency, it's recommended to initiate splash ad loading request before entering current page, for example after SDK initialization. Demo here loads in viewDidLoad for convenience
         loadAd()
     }
@@ -40,7 +33,7 @@ class SplashVC: BaseNormalBarNoFootVC {
     
     /// Enter home page
     private func enterHomeVC() {
-        launchLoadingView?.dismiss()
+        
     }
     
     // MARK: - Load Ad
@@ -192,9 +185,7 @@ extension SplashVC: ATSplashDelegate {
     func splashDidShow(forPlacementID placementID: String, extra: [AnyHashable : Any]) {
         ATDemoLog("splashDidShowForPlacementID:%@", placementID)
         showLog(String(format: "splashDidShowForPlacementID:%@", placementID))
-        
-        // Can hide after displaying ad to avoid blocking
-        launchLoadingView?.dismiss()
+ 
     }
     
     /// Splash ad closed

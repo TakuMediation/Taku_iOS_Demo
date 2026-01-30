@@ -23,13 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         // Initialize SDK.
         AdSDKManager.shared.initSDK()
-        // Start splash ad
-        AdSDKManager.shared.startSplashAd()
-        
+ 
         //For apps published in non-EU regions, use this method to initialize SDK integration. For EU region initialization, replace with AdSDKManager.shared.initSDK_EU
 //        AdSDKManager.shared.initSDK_EU {
-//            // Start splash ad
-//            AdSDKManager.shared.startSplashAd()
 //        }
         
         return true
