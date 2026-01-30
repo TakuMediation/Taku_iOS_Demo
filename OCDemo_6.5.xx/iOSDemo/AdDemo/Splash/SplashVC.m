@@ -15,6 +15,7 @@
 
 #import "LaunchLoadingView.h"
 
+//本类演示利用SDK内置开屏超时计时器kATSplashExtraTolerateTimeoutKey来控制广告流程，如果您需要自建超时计时器，请参考AdSDKManager.m
 @interface SplashVC () <ATSplashDelegate>
  
 @end
@@ -24,25 +25,19 @@
 //广告位ID
 #define SplashPlacementID @"b67f4ab43d2fe1"
 
-// Custom adapter test ID
-//#define SplashPlacementID @"b687deabac7988"
-
 //场景ID，可选，可在后台生成。没有可传入空字符串
 #define SplashSceneID @""
  
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //添加加载页面，当广告显示完毕后需要在代理中移除
-    [[LaunchLoadingView sharedInstance] show];
-     
+ 
     //为了加快开屏广告效率，建议在进入当前页面之前发起开屏广告加载请求，例如初始化SDK之后，demo此处为了方便演示，在viewDidLoad进入时请求
     [self loadAd];
 }
 
 /// 进入首页
 - (void)enterHomeVC {
-    [[LaunchLoadingView sharedInstance] dismiss];
+    //广告超时或展示完毕关闭时，执行这里
 }
 
 #pragma mark - Load Ad 加载广告
@@ -104,7 +99,7 @@
 //    //查询可用于展示的广告缓存(可选接入)
 //    NSArray <NSDictionary *> * adCaches = [[ATAdManager sharedManager] getSplashValidAdsForPlacementID:SplashPlacementID];
 //    ATDemoLog(@"getValidAds : %@",adCaches);
-//     
+//
 //    //查询广告加载状态(可选接入)
 //    ATCheckLoadModel * status = [[ATAdManager sharedManager] checkSplashLoadStatusForPlacementID:SplashPlacementID];
 //    ATDemoLog(@"checkLoadStatus : %d",status.isLoading);
@@ -190,8 +185,7 @@
     ATDemoLog(@"splashDidShowForPlacementID:%@",placementID);
     [self showLog:[NSString stringWithFormat:@"splashDidShowForPlacementID:%@ ",placementID]];
     
-    //展示广告后可以隐藏，避免遮挡
-    [[LaunchLoadingView sharedInstance] dismiss];
+    //有些广告平台SDK内部展示时的广告视图层级不高，如果发现应用视图遮挡了广告，请在此调整应用视图，避免影响广告视图
 }
 
 /// 开屏广告已关闭

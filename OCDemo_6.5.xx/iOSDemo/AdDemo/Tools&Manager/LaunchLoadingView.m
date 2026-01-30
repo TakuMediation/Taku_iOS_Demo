@@ -13,6 +13,9 @@
 @property (nonatomic, strong) UILabel *timerLabel;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger seconds;
+  
+//自建计时器超时时间，通常大于SDK的kATSplashExtraTolerateTimeoutKey的设置，可根据您的具体需求调整
+#define LaunchLoadingView_Timeout 10
 
 @end
 
@@ -158,6 +161,9 @@
     // 重置计时器
     self.seconds = 0;
     
+    // 重置超时标记
+    self.localTimerTimeout = NO;
+    
     // 更新UI显示初始时间
     self.timerLabel.text = [NSString stringWithFormat:@"%@ 00:00 ,%@:%d",
                             kLocalizeStr(@"当前"),
@@ -187,10 +193,11 @@
     self.seconds++;
     
     // 检查是否达到超时时间
-    if (self.seconds >= FirstAppOpen_Timeout) {
+    if (self.seconds >= LaunchLoadingView_Timeout) {
         // 超时了，自动移除视图
         NSLog(@"LaunchLoadingView timeout reached: %ld seconds", (long)self.seconds);
         [self dismiss];
+        self.localTimerTimeout = YES;
         return;
     }
     

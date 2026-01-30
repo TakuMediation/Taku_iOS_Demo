@@ -15,7 +15,7 @@
 static AdSDKManager *sharedManager = nil;
 
 @interface AdSDKManager() <ATAdLoadingDelegate, ATSplashDelegate>
-
+ 
 @end
 
 @implementation AdSDKManager
@@ -61,8 +61,7 @@ static AdSDKManager *sharedManager = nil;
 //        }else {
 //            //用户不同意
 //        }
-        
-        
+         
         [self initSDK];
         if (block) {
             block();
@@ -91,7 +90,7 @@ static AdSDKManager *sharedManager = nil;
 
     //SDK自定义参数配置，多项一起，其他配置在SDKGlobalConfigTool类中查看
 //    [SDKGlobalConfigTool setCustomData:@{kATCustomDataUserIDKey:@"test_custom_user_id",
-//                                         kATCustomDataChannelKey:@"custom_data_channel",
+//                                         kATCustomDataChannelKey:@"custom_data_channel",//设置渠道字符串，可在设备维度报表中看到对应的
 //                                         kATCustomDataSubchannelKey:@"custom_data_subchannel",
 //                                         kATCustomDataAgeKey:@18,
 //                                         kATCustomDataGenderKey:@1,//流量分组的时候填写的值，需要跟该传入的值一致
@@ -123,6 +122,8 @@ static AdSDKManager *sharedManager = nil;
 - (void)addLaunchLoadingView {
     //添加启动页
     LaunchLoadingView *loadingView = [LaunchLoadingView sharedInstance];
+    
+    //展示启动页
     [loadingView show];
 }
 
@@ -130,7 +131,7 @@ static AdSDKManager *sharedManager = nil;
 - (void)loadSplashWithPlacementID:(NSString *)placementID {
     NSMutableDictionary *loadConfigDict = [NSMutableDictionary dictionary];
     
-    //开屏超时时间
+    //开屏超时时间，本流程使用SDK的kATSplashExtraTolerateTimeoutKey（内置超时计时器）来演示加载超时不展示广告的情形，如果你需要超时也展示广告，则请根据您自己的定时器自定义展示逻辑
     [loadConfigDict setValue:@(FirstAppOpen_Timeout) forKey:kATSplashExtraTolerateTimeoutKey];
     //自定义load参数
     [loadConfigDict setValue:@"media_val_SplashVC" forKey:kATAdLoadingExtraMediaExtraKey];
@@ -175,7 +176,14 @@ static AdSDKManager *sharedManager = nil;
 /// 开屏广告加载回调判断
 - (void)showSplashOrEnterHomePageWithPlacementID:(NSString *)placementID loadResult:(BOOL)loadResult {
     if (loadResult) {
+        
+        //自有计时器逻辑，由于自有计时器优先，如果自有计时器时间到了，那么也就不再展示广告了
+        if ([LaunchLoadingView sharedInstance].localTimerTimeout == YES) {
+            return;
+        }
+        
         [self showSplashWithPlacementID:placementID];
+        
     } else {
         [[LaunchLoadingView sharedInstance] dismiss];
     }
