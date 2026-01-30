@@ -26,7 +26,7 @@ class NativeSelfRenderVC: BaseNormalBarVC {
     // Placement ID
     private let nativeSelfRenderPlacementID = "b680af2c216f73"
     
-    // Scene ID, optional, can be generated in the backend. Pass empty string if not available
+    // Scene ID, optional, can be generated in the dashboard. Pass empty string if not available
     private let nativeSelfRenderSceneID = ""
     
     // MARK: - Load Ad

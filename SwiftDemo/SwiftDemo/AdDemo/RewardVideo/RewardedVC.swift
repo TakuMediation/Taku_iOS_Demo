@@ -20,7 +20,7 @@ class RewardedVC: BaseNormalBarVC {
     /// Placement ID
     private let rewardedPlacementID = "b67f4ab93eb3a7"
     
-    /// Scene ID, optional, can be generated in backend. Pass empty string if none
+    /// Scene ID, optional, can be generated in dashboard. Pass empty string if none
     private let rewardedSceneID = ""
     
     // MARK: - Load Ad
@@ -66,7 +66,7 @@ class RewardedVC: BaseNormalBarVC {
             return
         }
         
-        // Display configuration, Scene passes backend scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
+        // Display configuration, Scene passes dashboard scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
         let config = ATShowConfig(scene: rewardedSceneID, showCustomExt: "testShowCustomExt")
         
         // Show ad
@@ -200,7 +200,7 @@ extension RewardedVC: ATRewardedVideoDelegate {
     // MARK: - Rewarded video again delegate
     
     // Supports rewarded video "watch again" capability (abbreviated as reward again). After enabling this feature, the aggregation dimension will automatically cache a rewarded video ad, and after the first ad display and receiving the reward callback, it will render a retention popup to guide users to "watch again for more rewards". After the user clicks, the cached ad will automatically play, which helps improve user ad value and active duration.
-    // If you have enabled the "watch again" feature in the backend configuration, please implement the relevant callbacks. (CSJ platform supported)
+    // If you have enabled the "watch again" feature in the dashboard configuration, please implement the relevant callbacks. (CSJ platform supported)
     
     /// Rewarded video again reward success
     /// - Parameters:

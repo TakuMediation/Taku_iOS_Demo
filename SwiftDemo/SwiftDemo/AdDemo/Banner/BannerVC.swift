@@ -24,10 +24,10 @@ class BannerVC: BaseNormalBarVC {
     /// Placement ID
     private let bannerPlacementID = "b680a1e7874fce"
     
-    /// Scene ID, optional, can be generated in backend. Pass empty string if none
+    /// Scene ID, optional, can be generated in dashboard. Pass empty string if none
     private let bannerSceneID = ""
     
-    /// Note: banner size must match the ratio configured in backend
+    /// Note: banner size must match the ratio configured in dashboard
     private let bannerSize = CGSize(width: 320, height: 50)
     
     // MARK: - Load Ad
@@ -74,7 +74,7 @@ class BannerVC: BaseNormalBarVC {
             return
         }
         
-        // Show config, Scene passes backend scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
+        // Show config, Scene passes dashboard scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
         let config = ATShowConfig(scene: bannerSceneID, showCustomExt: "testShowCustomExt")
         
         // Show ad

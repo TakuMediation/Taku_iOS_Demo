@@ -29,7 +29,7 @@ class NativeExpressVC: BaseNormalBarVC {
     // SDK rendering - actual third-party ad is self-rendered placement
     // private let nativeExpressPlacementID = "n67ff515ba1460"
     
-    // Scene ID, optional, can be generated in backend. Pass empty string if none
+    // Scene ID, optional, can be generated in dashboard. Pass empty string if none
     private let nativeExpressSceneID = ""
     
     // MARK: - Load Ad
@@ -40,7 +40,7 @@ class NativeExpressVC: BaseNormalBarVC {
         
         var loadConfigDict: [String: Any] = [:]
         
-        // Request template ad with specified size, ad platform will match this size to return ad, not necessarily exact match, depends on template type selected in ad platform backend
+        // Request template ad with specified size, ad platform will match this size to return ad, not necessarily exact match, depends on template type selected in ad platform dashboard
         loadConfigDict[kATExtraInfoNativeAdSizeKey] = NSValue(cgSize: CGSize(width: ExpressAdWidth, height: ExpressAdHeight))
         
         ATAdManager.shared().loadAD(withPlacementID: nativeExpressPlacementID, extra: loadConfigDict, delegate: self)
@@ -127,7 +127,7 @@ class NativeExpressVC: BaseNormalBarVC {
         let nativeAdRenderType = nativeADView.getCurrentNativeAdRenderType()
         if nativeAdRenderType == .express {
             ATDemoLog("✅✅✅--Template ad")
-            ATDemoLog("🔥--Template ad width/height: \(offer.nativeAd.nativeExpressAdViewWidth), \(offer.nativeAd.nativeExpressAdViewHeight), requested width/height: \(ExpressAdWidth),\(ExpressAdHeight), if size difference is too large, check backend template configuration")
+            ATDemoLog("🔥--Template ad width/height: \(offer.nativeAd.nativeExpressAdViewWidth), \(offer.nativeAd.nativeExpressAdViewHeight), requested width/height: \(ExpressAdWidth),\(ExpressAdHeight), if size difference is too large, check dashboard template configuration")
         } else {
             ATDemoLog("⚠️⚠️⚠️--This is self-rendered ad")
         }

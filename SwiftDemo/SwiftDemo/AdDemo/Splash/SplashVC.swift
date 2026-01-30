@@ -17,7 +17,7 @@ class SplashVC: BaseNormalBarNoFootVC {
     /// Placement ID
     private let splashPlacementID = "b67f4ab43d2fe1"
     
-    /// Scene ID, optional, can be generated in backend. Pass empty string if none
+    /// Scene ID, optional, can be generated in dashboard. Pass empty string if none
     private let splashSceneID = ""
     
     // MARK: - Lifecycle
@@ -106,7 +106,7 @@ class SplashVC: BaseNormalBarNoFootVC {
             return
         }
         
-        // Display configuration, Scene passes backend scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
+        // Display configuration, Scene passes dashboard scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
         let config = ATShowConfig(scene: splashSceneID, showCustomExt: "testShowCustomExt")
         
         // Splash related parameter configuration

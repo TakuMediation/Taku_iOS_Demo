@@ -20,7 +20,7 @@ class InterstitialVC: BaseNormalBarVC {
     /// Placement ID
     private let interstitialPlacementID = "b680a1e0ae7a43"
     
-    /// Scene ID, optional, can be generated in the backend. Pass empty string if none
+    /// Scene ID, optional, can be generated in the dashboard. Pass empty string if none
     private let interstitialSceneID = ""
  
     // MARK: - Load Ad
@@ -64,7 +64,7 @@ class InterstitialVC: BaseNormalBarVC {
             return
         }
         
-        // Show configuration, Scene passes backend scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
+        // Show configuration, Scene passes dashboard scene ID, pass empty string if none, showCustomExt parameter can pass custom parameter string
         let config = ATShowConfig(scene: interstitialSceneID, showCustomExt: "testShowCustomExt")
         
         // Show ad
