@@ -85,7 +85,6 @@
     config.mediaViewFrame = CGRectMake(0, 0, SelfRenderViewMediaViewWidth, SelfRenderViewMediaViewHeight);
     config.delegate = self;
     config.rootViewController = self;
-    //让广告View容器贴合于广告
     config.sizeToFit = YES;
     //设置仅wifi模式才自动播放，部分广告平台有效
     config.videoPlayType = ATNativeADConfigVideoPlayOnlyWiFiAutoPlayType;
