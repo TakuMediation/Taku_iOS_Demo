@@ -43,8 +43,9 @@
     
     //设置请求广告的尺寸
     [loadConfigDict setValue:[NSValue valueWithCGSize:CGSizeMake(SelfRenderViewWidth, SelfRenderViewHeight)] forKey:kATExtraInfoNativeAdSizeKey];
-    //请求自适应尺寸的原生广告(部分广告平台可用)
-    [AdLoadConfigTool native_loadExtraConfigAppend_SizeToFit:loadConfigDict];
+    
+    //开启根据宽度，请求自适应高度的广告，仅部分广告平台有效（穿山甲、JD、快手）
+    [loadConfigDict setValue:@YES forKey:kATNativeAdSizeToFitKey];
     
     // 给视频播放器设置frame
     [loadConfigDict setValue:[NSValue valueWithCGRect:CGRectMake(0, 0, SelfRenderViewMediaViewWidth, SelfRenderViewMediaViewHeight)] forKey:kATExtraInfoMediaViewFrameKey];
