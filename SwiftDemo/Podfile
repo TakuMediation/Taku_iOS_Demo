@@ -31,6 +31,9 @@ target 'SwiftDemo' do
  
   #DebugUI,调试时建议接入,上线后去掉
   pod 'AnyThinkDebugUISDK'
+  
+  # AnyThinkiOS >= 6.5.40 Use 1.0.7 DebugUI
+  # pod 'AnyThinkDebugUISDK','1.0.7'
  
   # Third-party analytics SDKs
 #  pod 'AppsFlyerFramework'
