@@ -30,6 +30,9 @@ target 'iOSDemo' do
  
     pod 'AnyThinkDebugUISDK'
     
+    # AnyThinkiOS >= 6.5.40 Use 1.0.7 DebugUI
+    # pod 'AnyThinkDebugUISDK','1.0.7'
+    
   #第三方数据统计SDK
 #  pod 'AppsFlyerFramework'
 #  pod 'Adjust'
