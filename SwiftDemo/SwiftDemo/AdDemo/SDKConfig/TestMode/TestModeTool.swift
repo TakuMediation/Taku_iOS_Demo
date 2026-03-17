@@ -46,7 +46,7 @@ class TestModeTool: NSObject {
         }
     }
     
-    /// 开启竞价广告源的测试模式
+    /// 开启HeaderBidding广告源的测试模式
     /// 测试完毕请移除⚠️
     /// - Parameter currentIDFAStr: 当前测试机器的idfa，必须传入有效值
     static func enableHeaderBiddingTestMode(withCurrentIDFAStr currentIDFAStr: String) {
