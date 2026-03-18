@@ -17,6 +17,6 @@
 + (NSMutableDictionary *)getWinInfoResult:(ATBidWinLossResult *)winLossResult;
 
 //C2S flow needed
-+ (NSMutableDictionary *)getC2SInfo:(NSInteger)ecpm;
++ (NSMutableDictionary *)getC2SInfo:(NSInteger)ecpm networkAdObj:(id)networkAdObj;
  
 @end

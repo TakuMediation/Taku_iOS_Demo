@@ -16,10 +16,11 @@
 }
 
 #pragma mark - tools
-+ (NSMutableDictionary *)getC2SInfo:(NSInteger)ecpm {
++ (NSMutableDictionary *)getC2SInfo:(NSInteger)ecpm networkAdObj:(id)networkAdObj {
     
-    NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
-    
+    NSMutableDictionary *infoDic = [DemoCustomInitAdapter getLoadNetworkObjc:networkAdObj];
+    NSLog(@"DemoCustomBaseAdapter 传入network广告对象:%@",infoDic);
+     
     NSString *priceStr = [NSString stringWithFormat:@"%ld",ecpm];
     NSString *logOriginalString = [NSString stringWithFormat:@"MS:C2S Original priceStr :%@",priceStr];
     NSLog(@"DemoCustomBaseAdapter 获取到广告价格:%@",logOriginalString);

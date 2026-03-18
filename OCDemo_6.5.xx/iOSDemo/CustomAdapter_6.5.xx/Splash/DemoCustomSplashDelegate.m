@@ -16,7 +16,7 @@
  * 注意事项：⚠️如果调用是loadAndShowSplashAd接口则不需要调用show接口
  */
 - (void)msSplashAdReadySuccess:(MSSplashAd *)splashAd {
-    NSDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[splashAd ecpm]];
+    NSMutableDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[splashAd ecpm] networkAdObj:splashAd];
     //自定义参数
     [extraDic setValue:@"custom params value" forKey:@"custom params key"];
     [self.adStatusBridge atOnSplashAdLoadedExtra:extraDic];

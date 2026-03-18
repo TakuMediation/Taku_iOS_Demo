@@ -75,7 +75,7 @@
     //展示广告
     [[ATAdManager sharedManager] showRewardedVideoWithPlacementID:RewardedPlacementID config:config inViewController:self delegate:self];
 }
-
+ 
 #pragma mark - ATAdLoadingDelegate
 /// 广告位加载完成
 /// - Parameter placementID: 广告位ID
@@ -247,5 +247,11 @@
     ATDemoLog(@"rewardedVideoAgainDidClickForPlacementID:%@ extra:%@", placementID, extra);
     [self showLog:[NSString stringWithFormat:@"rewardedVideoAgainDidClick:%@", placementID]];
 }
+
+#pragma mark - Get network object on ad show
+- (void)forNetworkDicExtra:(NSDictionary *)extra {
+    ATDemoLog(@"mg_forNetworkDicExtra:%@",extra);
+}
+
 
 @end

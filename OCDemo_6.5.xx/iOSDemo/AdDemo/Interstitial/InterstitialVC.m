@@ -83,7 +83,7 @@
                                                         delegate:self
                                               nativeMixViewBlock:nil];
 }
-
+ 
 #pragma mark - ATAdLoadingDelegate
 /// 广告位加载完成
 /// - Parameter placementID: 广告位ID
@@ -201,6 +201,11 @@
 - (void)interstitialDidClickForPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {
     ATDemoLog(@"interstitialDidClickForPlacementID:%@ extra:%@", placementID, extra);
     [self showLog:[NSString stringWithFormat:@"interstitialDidClickForPlacementID:%@", placementID]];
+}
+
+#pragma mark - Get network object on ad show
+- (void)forNetworkDicExtra:(NSDictionary *)extra {
+    ATDemoLog(@"mg_forNetworkDicExtra:%@",extra);
 }
   
 @end

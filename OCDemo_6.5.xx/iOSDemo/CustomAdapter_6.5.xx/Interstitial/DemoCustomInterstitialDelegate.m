@@ -13,7 +13,7 @@
    平台广告展示准备就绪，可以进行展示 在此回调中调用show接口展示广告
  */
 - (void)msInterstitialAdReadySuccess:(MSInterstitialAd *)msInterstitialAd {
-    NSDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msInterstitialAd ecpm]];
+    NSMutableDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msInterstitialAd ecpm] networkAdObj:msInterstitialAd];
     //自定义参数
     [extraDic setValue:@"custom params value" forKey:@"custom params key"];
     //传入自定义参数

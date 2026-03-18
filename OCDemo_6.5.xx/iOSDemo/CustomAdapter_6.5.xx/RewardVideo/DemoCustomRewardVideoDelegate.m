@@ -15,10 +15,10 @@
  */
 - (void)msRewardVideoCached:(MSRewardVideoAd *)msRewardVideoAd {
     [ATAdLogger logMessage:@"ATMSRewardedVideoCustomEvent::msRewardVideoCached" type:ATLogTypeExternal];
-    NSDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msRewardVideoAd ecpm]];
+    NSDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msRewardVideoAd ecpm] networkAdObj:msRewardVideoAd];
     //自定义参数
     [extraDic setValue:@"custom params value" forKey:@"custom params key"];
-    [self.adStatusBridge atOnRewardedAdLoadedExtra:extraDic];
+    [self.adStatusBridge atOnRewardedAdLoadedExtra:extraDic]; 
 }
 
 /**

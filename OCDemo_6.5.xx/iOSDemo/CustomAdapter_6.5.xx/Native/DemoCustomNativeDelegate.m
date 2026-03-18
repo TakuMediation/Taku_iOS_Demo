@@ -31,7 +31,7 @@
     
     NSMutableArray *offerArray = [NSMutableArray array];
     
-    NSDictionary *infoDic = [DemoCustomBaseAdapter getC2SInfo:[feedAds.firstObject ecpm]];
+    NSMutableDictionary *infoDic = [DemoCustomBaseAdapter getC2SInfo:[feedAds.firstObject ecpm] networkAdObj:feedAds];
     
     [feedAds enumerateObjectsUsingBlock:^(MSNativeFeedAdModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
@@ -96,9 +96,8 @@
     
     NSMutableArray *offerArray = [NSMutableArray array];
 
-    NSDictionary *infoDic = [DemoCustomBaseAdapter getC2SInfo:[feedAds.firstObject ecpm]];
-
-    
+    NSDictionary *infoDic = [DemoCustomBaseAdapter getC2SInfo:[feedAds.firstObject ecpm] networkAdObj:feedAds];
+ 
     [feedAds enumerateObjectsUsingBlock:^(MSNativeFeedAdModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         UIView *nativeAdView = obj.feedView;

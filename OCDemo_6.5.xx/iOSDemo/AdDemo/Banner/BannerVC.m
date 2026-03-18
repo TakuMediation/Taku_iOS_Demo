@@ -219,5 +219,10 @@
     ATDemoLog(@"didDeepLinkOrJumpForPlacementID:placementID:%@ with extra: %@, success:%@", placementID,extra, success ? @"YES" : @"NO");
     [self showLog:[NSString stringWithFormat:@"didDeepLinkOrJumpForPlacementID:%@, success:%@", placementID, success ? @"YES" : @"NO"]];
 }
-  
+
+#pragma mark - Get network object on ad show
+- (void)forNetworkDicExtra:(NSDictionary *)extra {
+    ATDemoLog(@"mg_forNetworkDicExtra:%@",extra);
+}
+
 @end

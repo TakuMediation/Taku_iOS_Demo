@@ -13,7 +13,7 @@
    平台广告准备就绪，可以进行展示
  */
 - (void)msBannerAdReadySuccess:(MSBannerView *)msBannerAd {
-    NSDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msBannerAd ecpm]];
+    NSMutableDictionary * extraDic = [DemoCustomBaseAdapter getC2SInfo:[msBannerAd ecpm] networkAdObj:msBannerAd];
     //自定义参数
     [extraDic setValue:@"custom params value" forKey:@"custom params key"];
     [self.adStatusBridge atOnBannerAdLoadedWithView:msBannerAd adExtra:extraDic];

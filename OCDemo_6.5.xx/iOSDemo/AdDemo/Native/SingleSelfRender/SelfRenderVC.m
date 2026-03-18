@@ -343,5 +343,10 @@
     ATDemoLog(@"didCloseDetailInAdView:%@ extra:%@", placementID, extra);
     [self showLog:[NSString stringWithFormat:@"didCloseDetailInAdView:%@", placementID]];
 }
+
+#pragma mark - Get network object on ad show
+- (void)forNetworkDicExtra:(NSDictionary *)extra {
+    ATDemoLog(@"mg_forNetworkDicExtra:%@",extra);
+}
  
 @end

@@ -25,6 +25,9 @@
 //广告位ID
 #define SplashPlacementID @"b67f4ab43d2fe1"
 
+// Custom adapter test ID
+//#define SplashPlacementID @"b687deabac7988"
+ 
 //场景ID，可选，可在后台生成。没有可传入空字符串
 #define SplashSceneID @""
  
@@ -293,6 +296,11 @@
 - (void)splashZoomOutViewDidCloseForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra {
     ATDemoLog(@"splashZoomOutViewDidCloseForPlacementID:%@",placementID);
     [self showLog:[NSString stringWithFormat:@"splashZoomOutViewDidCloseForPlacementID:%@ ",placementID]];
+}
+
+#pragma mark - Get network object on ad show
+- (void)forNetworkDicExtra:(NSDictionary *)extra {
+    ATDemoLog(@"mg_forNetworkDicExtra:%@",extra);
 }
   
 @end
