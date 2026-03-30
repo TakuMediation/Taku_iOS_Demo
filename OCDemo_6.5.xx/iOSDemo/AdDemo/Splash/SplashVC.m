@@ -255,19 +255,6 @@
 - (void)splashDetailDidClosedForPlacementID:(NSString*)placementID extra:(NSDictionary *)extra {
     ATDemoLog(@"splashDetailDidClosedForPlacementID:%@",placementID);
     [self showLog:[NSString stringWithFormat:@"splashDetailDidClosedForPlacementID:%@ ",placementID]];
-    
-    //可在此获取关闭原因:dismiss_type
-//    typedef NS_OPTIONS(NSInteger, ATAdCloseType) {
-//        ATAdCloseUnknow = 1,            // ad close type unknow
-//        ATAdCloseSkip = 2,              // ad skip to close
-//        ATAdCloseCountdown = 3,         // ad countdown to close
-//        ATAdCloseClickcontent = 4,      // ad clickcontent to close
-//        ATAdCloseShowfail = 99          // ad showfail to close
-//    };
-//    ATAdCloseType closeType = [extra[kATADDelegateExtraDismissTypeKey] integerValue];
-    
-    // 热启动预加载（可选）
-    // [self loadAd];
 }
 
 /// 开屏广告关闭计时
