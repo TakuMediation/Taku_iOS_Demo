@@ -89,8 +89,7 @@ static AdSDKManager *sharedManager = nil;
 //    [SDKGlobalConfigTool pangleCOPPACCPASetting];
 
     //SDK自定义参数配置，多项一起，其他配置在SDKGlobalConfigTool类中查看
-//    [SDKGlobalConfigTool setCustomData:@{kATCustomDataUserIDKey:@"test_custom_user_id",
-//                                         kATCustomDataChannelKey:@"custom_data_channel",//设置渠道字符串，可在设备维度报表中看到对应的
+//    [SDKGlobalConfigTool setCustomData:@{kATCustomDataUserIDKey:@"test_custom_user_id", //设置用户ID kATCustomDataChannelKey:@"custom_data_channel",//设置渠道字符串，可在设备维度报表中看到对应的
 //                                         kATCustomDataSubchannelKey:@"custom_data_subchannel",
 //                                         kATCustomDataAgeKey:@18,
 //                                         kATCustomDataGenderKey:@1,
