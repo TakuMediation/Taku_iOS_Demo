@@ -30,8 +30,8 @@ class RewardedVC: BaseNormalBarVC {
         showLog(kLocalizeStr("Load ad clicked"))
         
         var loadConfigDict: [String: Any] = [:]
-        // Optional integration, the following key parameters are applicable to server-side reward verification of ad platforms and will be passed through
-        loadConfigDict[kATAdLoadingExtraMediaExtraKey] = "media_val_RewardedVC"
+        // Optional integration, the following key parameters are applicable to server-side reward verification of ad platforms and will be passed to your server.
+        loadConfigDict[kATAdLoadingExtraMediaExtraKey] = "{\"userID\":\"xxx\"}"
         loadConfigDict[kATAdLoadingExtraUserIDKey] = "rv_test_user_id"
         loadConfigDict[kATAdLoadingExtraRewardNameKey] = "reward_Name"
         loadConfigDict[kATAdLoadingExtraRewardAmountKey] = 3
