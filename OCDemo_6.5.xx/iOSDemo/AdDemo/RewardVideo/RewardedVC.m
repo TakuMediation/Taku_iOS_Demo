@@ -33,7 +33,7 @@
     [self showLog:kLocalizeStr(@"点击了加载广告")];
       
     NSMutableDictionary * loadConfigDict = [NSMutableDictionary dictionary];
-    // 可选接入，以下几个key参数适用于广告平台的服务端激励验证，将被透传
+    // 可选接入，以下几个key参数适用于广告平台的服务端激励验证，将被透传给服务端，必须使用以下这4个key
     [loadConfigDict setValue:@"{\"userID\":\"xxx\"}" forKey:kATAdLoadingExtraMediaExtraKey];
     [loadConfigDict setValue:@"rv_test_user_id" forKey:kATAdLoadingExtraUserIDKey];
     [loadConfigDict setValue:@"reward_Name" forKey:kATAdLoadingExtraRewardNameKey];
