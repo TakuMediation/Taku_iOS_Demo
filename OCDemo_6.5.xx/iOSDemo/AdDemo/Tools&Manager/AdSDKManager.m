@@ -93,10 +93,10 @@ static AdSDKManager *sharedManager = nil;
 //                                         kATCustomDataChannelKey:@"custom_data_channel",//设置渠道字符串，可在设备维度报表中看到对应的
 //                                         kATCustomDataSubchannelKey:@"custom_data_subchannel",
 //                                         kATCustomDataAgeKey:@18,
-//                                         kATCustomDataGenderKey:@1,//流量分组的时候填写的值，需要跟该传入的值一致
+//                                         kATCustomDataGenderKey:@1,
 //                                         kATCustomDataNumberOfIAPKey:@19,
 //                                         kATCustomDataIAPAmountKey:@20.0f,
-//                                         kATCustomDataIAPCurrencyKey:@"usd",}];
+//                                         kATCustomDataIAPCurrencyKey:@"usd"}];
  
     //调试模式相关工具 TestModeTool
 //    [TestModeTool showDebugUI:]
