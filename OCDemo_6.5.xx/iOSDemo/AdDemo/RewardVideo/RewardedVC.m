@@ -34,7 +34,7 @@
       
     NSMutableDictionary * loadConfigDict = [NSMutableDictionary dictionary];
     // 可选接入，以下几个key参数适用于广告平台的服务端激励验证，将被透传
-    [loadConfigDict setValue:@"media_val_RewardedVC" forKey:kATAdLoadingExtraMediaExtraKey];
+    [loadConfigDict setValue:@"{\"userID\":\"xxx\"}" forKey:kATAdLoadingExtraMediaExtraKey];
     [loadConfigDict setValue:@"rv_test_user_id" forKey:kATAdLoadingExtraUserIDKey];
     [loadConfigDict setValue:@"reward_Name" forKey:kATAdLoadingExtraRewardNameKey];
     [loadConfigDict setValue:@3 forKey:kATAdLoadingExtraRewardAmountKey];
