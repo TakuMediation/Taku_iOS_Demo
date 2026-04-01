@@ -34,35 +34,19 @@ static AdSDKManager *sharedManager = nil;
     [[ATAPI sharedInstance] showGDPRConsentDialogInViewController:[UIApplication sharedApplication].keyWindow.rootViewController dismissalCallback:^{
         // Example of requesting ATT permission on non-first launch when user consents or data consent is unknown. Adjust according to your app's actual situation.
 
-        if (([ATAPI sharedInstance].dataConsentSet == ATDataConsentSetUnknown && ([[NSUserDefaults standardUserDefaults] boolForKey:@"GDPR_First_Flag"] == YES))
-            
-            || [ATAPI sharedInstance].dataConsentSet == ATDataConsentSetPersonalized) {
-            
+        if ([ATAPI sharedInstance].dataConsentSet == ATDataConsentSetPersonalized) {
+            //用户同意了
             if (@available(iOS 14, *)) {
                 [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
                     
                 }];
             }
+        }else {
+            //用户不同意
         }
-        
-        //若有集成并使用Admob UMP弹窗，当用户做出选择后，则在此回调中[ATAPI sharedInstance].dataConsentSet 在 App 首次启动时无法获得结果
-        //如果您想获得结果，可以参考以下代码：
-//        NSString *purposeConsents = [[NSUserDefaults standardUserDefaults] stringForKey:@"IABTCF_PurposeConsents"];
-//        NSLog(@"purposeConsents:%@", purposeConsents);
-//        if (![purposeConsents containsString:@"1"]) {
-//           //用户不同意
-//        } else {
-//           //用户不同意
-//        }
-        
-//        //若没有集成使用Admob UMP，则在此回调中可以获得用户选择的结果。
-//        if ([ATAPI sharedInstance].dataConsentSet == ATDataConsentSetPersonalized) {
-//            //用户同意了
-//        }else {
-//            //用户不同意
-//        }
-         
+ 
         [self initSDK];
+        
         if (block) {
             block();
         }

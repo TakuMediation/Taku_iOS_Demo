@@ -84,33 +84,14 @@ class AdSDKManager: NSObject {
         ATAPI.sharedInstance().showGDPRConsentDialog(in: UIApplication.shared.topMostViewController() ?? UIViewController()) {
             // This example shows requesting ATT permission on non-first launch when user agrees or data consent is unknown. You can adjust according to your app's actual situation.
             let dataConsentSet = ATAPI.sharedInstance().dataConsentSet
-            let gdprFirstFlag = UserDefaults.standard.bool(forKey: "GDPR_First_Flag")
-            
-            if (dataConsentSet == .unknown && gdprFirstFlag) || dataConsentSet == .personalized {
+            if dataConsentSet == .personalized {
                 if #available(iOS 14, *) {
                     ATTrackingManager.requestTrackingAuthorization { status in
                         // Handle authorization status
                     }
                 }
             }
-            
-            //            // If you have integrated and are using the Admob UMP popup, after the user makes a choice, ATAPI.shared().dataConsentSet in this callback cannot obtain results during the app's first launch
-            //            // If you want to obtain the results, you can refer to the following code:
-            //             let purposeConsents = UserDefaults.standard.string(forKey: "IABTCF_PurposeConsents")
-            //             print("purposeConsents: \(purposeConsents ?? "")")
-            //             if !(purposeConsents?.contains("1") ?? false) {
-            //                 // User did not consent
-            //             } else {
-            //                 // User consented
-            //             }
-            //
-            //            // // If you have not integrated or are not using Admob UMP, you can obtain the user's selection result in this callback.
-            //             if ATAPI.sharedInstance().dataConsentSet == .personalized {
-            //                 // User consented
-            //             } else {
-            //                 // User did not consent
-            //             }
-            
+
             self.initSDK()
             block()
             
