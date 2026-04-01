@@ -48,7 +48,7 @@ class AdSDKManager: NSObject {
         // ATSDKGlobalSetting.sharedManager().setPresetPlacementConfigPathBundle(Bundle.main)
         
         // SDK custom parameter configuration, single item
-        SDKGlobalConfigTool.setCustomChannel("Your custom channel string")
+        SDKGlobalConfigTool.setCustomChannel("")
         
         // Optional integration, if using Pangle ad platform, set overseas privacy settings
         // SDKGlobalConfigTool.pangleCOPPACCPASetting()
@@ -94,8 +94,6 @@ class AdSDKManager: NSObject {
 
             self.initSDK()
             block()
-            
-            UserDefaults.standard.set(true, forKey: "GDPR_First_Flag")
         }
     }
 }

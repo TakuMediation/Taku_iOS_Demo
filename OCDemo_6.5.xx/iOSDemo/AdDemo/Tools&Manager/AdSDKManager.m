@@ -50,8 +50,6 @@ static AdSDKManager *sharedManager = nil;
         if (block) {
             block();
         }
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"GDPR_First_Flag"];
     }];
 }
  
@@ -67,7 +65,7 @@ static AdSDKManager *sharedManager = nil;
     // [[ATSDKGlobalSetting sharedManager] setPresetPlacementConfigPathBundle:[NSBundle mainBundle]];
     
     //SDK自定义参数配置，单项
-    [SDKGlobalConfigTool setCustomChannel:@"渠道xxx"];
+    [SDKGlobalConfigTool setCustomChannel:@""];
     
     //可选接入，若使用了Pangle广告平台，设置海外隐私项目
 //    [SDKGlobalConfigTool pangleCOPPACCPASetting];
