@@ -106,7 +106,11 @@
 //    //查询广告加载状态(可选接入)
 //    ATCheckLoadModel * status = [[ATAdManager sharedManager] checkSplashLoadStatusForPlacementID:SplashPlacementID];
 //    ATDemoLog(@"checkLoadStatus : %d",status.isLoading);
-    
+//
+//    //获取广告价格信息(可选接入)
+//    NSDictionary *adOfferInfo = status.adOfferInfo;
+//    ATDemoLog(@"adOfferInfo : %@",adOfferInfo);
+//
     //检查是否有就绪
     if (![[ATAdManager sharedManager] splashReadyForPlacementID:SplashPlacementID]) {
         [self loadAd];
