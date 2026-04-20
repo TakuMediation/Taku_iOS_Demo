@@ -43,6 +43,9 @@ class NativeExpressVC: BaseNormalBarVC {
         // Request template ad with specified size, ad platform will match this size to return ad, not necessarily exact match, depends on template type selected in ad platform dashboard
         loadConfigDict[kATExtraInfoNativeAdSizeKey] = NSValue(cgSize: CGSize(width: ExpressAdWidth, height: ExpressAdHeight))
         
+        // Adaptive size, If true , plz use nativeExpressAdViewHeight before Ad display. CSJ/JD/KuaiShou network supported this key.
+        loadConfigDict[kATNativeAdSizeToFitKey] = true
+        
         ATAdManager.shared().loadAD(withPlacementID: nativeExpressPlacementID, extra: loadConfigDict, delegate: self)
     }
     
