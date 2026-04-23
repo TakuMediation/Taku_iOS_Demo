@@ -118,7 +118,7 @@ class NativeExpressVC: BaseNormalBarVC {
         nativeADView.frame.size = CGSizeMake(trueExpressWidth, trueExpressHeight)
         
         // Show ad
-        let showVc = AdDisplayVC(adView: nativeADView, offer: offer, adViewSize: CGSize(width: ExpressAdWidth, height: ExpressAdHeight))
+        let showVc = AdDisplayVC(adView: nativeADView, offer: offer, adViewSize: CGSize(width: nativeADView.frame.size.width, height: nativeADView.frame.size.height))
         navigationController?.pushViewController(showVc, animated: true)
     }
     
