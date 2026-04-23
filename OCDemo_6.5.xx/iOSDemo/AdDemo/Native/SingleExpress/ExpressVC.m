@@ -85,7 +85,6 @@
     
     // 初始化config配置
     ATNativeADConfiguration *config = [[ATNativeADConfiguration alloc] init];
-    // 给模版广告nativeADView设置大小，通常为请求广告时设置的大小
     config.ADFrame = CGRectMake(0, 0, ExpressAdWidth, ExpressAdHeight);
     config.delegate = self;
     //设置展示根控制器
@@ -110,9 +109,14 @@
     //引用
     self.adView = nativeADView;
     
-    //展示广告
-    AdDisplayVC *showVc = [[AdDisplayVC alloc] initWithAdView:nativeADView offer:offer adViewSize:CGSizeMake(ExpressAdWidth, ExpressAdHeight)];
+    //展示广告,开了sizeToFit 和 kATNativeAdSizeToFitKey = YES，平台会返回nativeExpressAdViewWidth+nativeExpressAdViewHeight
+    AdDisplayVC *showVc = [[AdDisplayVC alloc] initWithAdView:nativeADView offer:offer adViewSize:CGSizeMake(offer.nativeAd.nativeExpressAdViewWidth, offer.nativeAd.nativeExpressAdViewHeight)];
     [self.navigationController pushViewController:showVc animated:YES];
+    
+    //如果没开sizeToFit 和 kATNativeAdSizeToFitKey = YES, 用自己设置的尺寸
+//    AdDisplayVC *showVc = [[AdDisplayVC alloc] initWithAdView:nativeADView offer:offer adViewSize:CGSizeMake(ExpressAdWidth,ExpressAdHeight)];
+//    [self.navigationController pushViewController:showVc animated:YES];
+    
 }
  
 - (void)printNativeAdInfoAfterRendererWithOffer:(ATNativeAdOffer *)offer nativeADView:(ATNativeADView *)nativeADView {

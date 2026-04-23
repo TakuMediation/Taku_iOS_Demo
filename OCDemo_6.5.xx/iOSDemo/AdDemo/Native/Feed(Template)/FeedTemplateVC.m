@@ -107,6 +107,11 @@
     //渲染广告
     [offer rendererWithConfiguration:config selfRenderView:nil nativeADView:nativeADView];
   
+    //展示广告,开了sizeToFit 和 kATNativeAdSizeToFitKey = YES，平台会返回nativeExpressAdViewWidth+nativeExpressAdViewHeight
+    nativeADView.frame = CGRectMake(0, 0, offer.nativeAd.nativeExpressAdViewWidth, offer.nativeAd.nativeExpressAdViewHeight);
+    //如果没开sizeToFit 和 kATNativeAdSizeToFitKey = YES, 用自己设置的尺寸
+//    nativeADView.frame = CGRectMake(0, 0, Feed_Cell_ExpressAdWidth, Feed_Cell_ExpressAdHeight);
+     
     return nativeADView;
 }
 
